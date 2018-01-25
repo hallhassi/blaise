@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body class='bg'>
+{% include navigation.html %}
+{% include text-tag.html %}
+{% if page.url == '/all/images/' %}
+{% for page in site.posts %}
+<div class='clearfix'>
+{% include images.html %}
+</div>
+{% endfor %}
+{% include lazy.html %}
+{% elsif page.url == '/all/videos/' %}
+{% for page in site.posts %}
+{% if page.youtube %}
+{% include youtube.html %}
+{% endif %}
+{% endfor %}
+{% elsif page.url == '/all/words/' %}
+{% for article in site.posts %}
+<div class='p' class='m1'>
+{% include text-tag2.html %}
+</div>
+{% endfor %}
+{% endif' %}
+{% include clipboard.html %}
+</body>
+
+</html>

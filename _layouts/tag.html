@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body class='bg'>
+
+{% include navigation.html %}
+{% include text-tag.html %}
+
+{% for article in site.posts %}
+
+    {% assign p1 = page.url | split:'/' | last %}
+    {% capture z1 %}
+    {% for author in article.author %}{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% for editor in article.editor %}{{ editor | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% for cover in article.cover %}{{ cover | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% for poster in article.poster %}{{ poster | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% endcapture %}
+    {% capture p2 %}
+    {% for pub in article.pub %}{{ pub | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% for printer in article.printer %}{{ printer | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% for publisher in article.publisher %}{{ publisher | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}, {% endfor %}
+    {% endcapture %}
+    {% assign b1 = article.binding | join: " " %}
+    {% assign p3 = article.print | join: " " %}
+    {% assign i1 = article.ink | join: " " | slugify %}
+    {% assign t1 = article.format | join: " " %}
+    {% assign p4 = article.printer | join: " " | slugify %}
+    {% assign c1 = article.cover | join: " " %}
+    {% assign p5 = article.poster | join: " " %}
+    {% assign p6 = article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' %}
+    {% assign p7 = article.place | join: " " | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify %}
+
+    {% if article.width == 8.3 and article.height == 11.7 %}
+    {% assign s1 = 'a4' %}
+    {% elsif article.width == 11.7 and article.height == 16.5 %}
+    {% assign s1 = 'a3' %}
+    {% elsif article.width == 6.9 and article.height == 9.8 %}
+    {% assign s1 = 'b5' %}
+    {% elsif article.width == 8.5 and article.height == 11 %}
+    {% assign s1 = 'letter' %}
+    {% elsif article.width == 5.5 and article.height == 8.5 %}
+    {% assign s1 = 'half-letter' %}
+    {% elsif article.width == 7 and article.height == 8.5 %}
+    {% assign s1 = 'half-legal' %}
+    {% else %}
+    {% assign s1 = 'kljasdfoiwjeflasdkjf' %}
+    {% endif %}
+
+    {% if article.editor == 'Blaise Larmee' %}
+    {% assign e1 = 'editor' %}
+    {% else %}
+    {% assign e1 = 'kljasdfoiwjeflasdkjf' %}
+    {% endif %}
+
+    {% assign authorCount = article.author | size %}
+    {% if authorCount == 0 and article.format and article.format != 'drawings' and article.format != 'exhibition' and article.format != 'sketchbook' %}
+    {% assign a1 = 'author' %}
+    {% else %}
+    {% assign a1 = 'kljasdfoiwjeflasdkjf' %}
+    {% endif %}
+
+    {% if p7 contains p1 or p6 == p1 or s1 == p1 or a1 == p1 or e1 == p1 or t1 contains p1 or z1 contains p1 or d1 contains p1 or p2 contains p1 or b1 contains p1 or p3 contains p1 or i1 contains p1 or p4 contains p1 or c1 contains p1 or p5 contains p1 %}
+    {% include feed1.html %}
+    {% endif %}
+
+{% endfor %}
+
+{% assign alltags = '' | split: '' %}
+{% for page in menuItems %}
+    {% assign w1 = page.url | replace:'/','' | first | split: '' %}
+    {% assign alltags = alltags | concat: w1 %}
+{% endfor %}
+
+{% include lazy.html %}{% include clipboard.html %}
+
+</body>
+
+</html>

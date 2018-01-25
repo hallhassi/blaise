@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body{% if page.bio or page.statement %} class='bg'{% else %}{% endif %}>
+
+{% include navigation.html %}
+{% include image.html %}
+{% include text.html %}
+<div class='clearfix'>
+{% include images.html %}
+</div>
+{% if page.youtube %}
+{% include youtube.html %}
+{% endif %}
+
+{% if page.url == '/'%}
+{% for article in site.posts %}
+    {% include feed3.html %}
+{% endfor %}
+
+{% elsif page.bio %}
+{% for article in site.posts limit:9 %}
+    {% include feed1.html %}
+{% endfor %}
+{% for article in site.posts offset:9 %}
+    {% include feed2.html %}
+{% endfor %}
+{% else %}
+{% for article in site.posts %}
+    {% include feed2.html %}
+{% endfor %}
+{% endif %}
+
+{% include lazy.html %}{% include clipboard.html %}
+
+</body>
+
+</html>

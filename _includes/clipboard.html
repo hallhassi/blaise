@@ -1,0 +1,20 @@
+<script>
+function email() {
+    document.getElementById("email").innerHTML = "copied&excl;";
+    document.getElementById("email").className += " copied";
+}
+function copy() {
+    document.getElementById("copy").innerHTML = "copied&excl;";
+    document.getElementById("copy").className += " copied";
+}
+</script>
+<script src="../../js/clipboard.min.js"></script>
+<script>
+var clipboard = new Clipboard('.btn');
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>

@@ -1,0 +1,8 @@
+{% if page.bio %}
+{% elsif page.statement %}
+{% else %}
+<div class='flex' id='top'>
+    <div class='cover' style='background-image:url(../{{page.permalink}}.jpg)'>
+    </div>
+</div>
+{% endif %}

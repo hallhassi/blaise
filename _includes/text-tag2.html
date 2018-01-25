@@ -1,0 +1,197 @@
+{% if article.bio %}
+<div>
+    <p>
+      {{article.bio}}
+    </p>
+</div>
+{% if article.url == '/' %}
+<div>
+    <p>
+      {% assign sum = 0 %}
+      {% for article in site.posts %}
+      {% assign sum = sum | plus: 1 %}
+      {% endfor %}
+      {% assign sum2 = 0 %}
+      {% for article in site.posts %}
+      {% assign sum2 = sum2 | plus: article.images %}
+      {% endfor %}
+      {% assign sum3 = 0 %}
+      {% for article in site.posts %}
+      {% if article.youtube %}
+      {% assign sum3 = sum3 | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      This site contains {{ sum }} works, {{ sum2 | plus: sum1 }} <a class='a2' href='{{site.url}}/all/images'>images</a>, and {{ sum3 }} <a class='a2' href='{{site.url}}/all/videos'>videos</a>.
+    </p>
+</div>
+{% endif %}
+{% elsif article.description %}
+<div>article
+    <p class='m1'>
+        {{article.description}}
+    </p>
+</div>
+{% elsif article.format == 'sketchbook' %}
+<div>
+    <p class='m1'>
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a> is a <a class='a2' href='{{ site.url }}/format/{{article.format}}'>{{article.format}}</a> by Blaise Larmee{% if article.format2 %} {{article.format2}}{% endif %}. It was drawn {% if article.place %}at <a class='a2' href='{{ site.url }}/place/{{ article.place| slugify }}'>{{ article.place }}</a> {% endif %}in <a class='a2' href='{{ site.url }}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>.
+    </p>
+</div>
+{% elsif article.format == 'event' %}
+<div>
+    <p class='m1'>
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a> was an <a class='a2' href='{{ site.url }}/format/{{article.format}}'>{{article.format}}</a> organized by {% if article.publisher %} <a class='a2' href='{{ site.url }}/publisher/{{ article.publisher }}'>{{ article.publisher }}</a>{% endif %}{% if article.editor %} and <a class='a2' href='{{ site.url }}/people/{{ article.editor | slugify }}'>{{ article.editor }}</a>{% endif %} featuring {% if article.concept %}a performance by <a class='a2' href='{{ site.url }}/people/{{article.dance}}'>{{article.dance}}</a> (dance and choreography) and <a class='a2' href='{{ site.url }}/people/{{article.concept}}'>{{article.concept}}</a> (concept), as well as performances by {%endif%}{% for author in article.author %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %} at {% if article.place2 %}{{article.place2}}{%else%}<a class='a2' href='{{ site.url }}/place/{{ article.place | slugify }}'>{{ article.place }}</a>{% endif %} on {{ article.pubdate0 }}, <a class='a2' href='{{ site.url }}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>.
+    </p>
+</div>
+{% elsif article.format == 'exhibition' %}
+<div>
+    <p class='m1'>
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a> is an <a class='a2' href='{{ site.url }}/format/{{article.format}}'>{{article.format}}</a> by Blaise Larmee. It took place{% if article.place %} at <a class='a2' href='{{ site.url }}/place/{{ article.place| slugify }}'>{{ article.place }}</a> {% endif %} in {{ article.pubdate0 }}, <a class='a2' href='{{ site.url }}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>. "{{ article.extra }}"
+    </p>
+</div>
+{% elsif article.format == 'drawings' %}
+<div>
+    <p class='m1'>
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a>{% if article.pubdateb %} is a series of {% else %} is a group of {% endif %}<a class='a2' href='{{ site.url }}/format/{{article.format}}'>{{article.format}}</a>{% if article.author %} by Blaise Larmee in collaboration with {% for author in article.author %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %}{% else %} by Blaise Larmee{% endif %} from <a class='a2' href='{{ site.url }}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>{% if article.pubdateb %} to <a class='a2' href='{{ site.url }}/year/{{ article.pubdateb | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdateb }}</a>{% endif %}.
+    </p>
+</div>
+{% elsif article.layout == 'default' %}
+<div>
+    <p class='m1'>
+    {% if article.title %}
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a> is
+    {% endif %}
+    {% if article.format %}
+        a{% capture firstletter %}{{ article.format | truncate: 1, '' }}{% endcapture %}{% if firstletter contains 'a' or firstletter contains 'e' or firstletter contains 'i' or firstletter contains 'o' or firstletter contains 'u' %}n{% endif %}
+        <a class='a2' href='{{ site.url }}/format/{{ article.format }}'>{{article.format}}</a>
+    {% endif %}
+    {% if article.format2 %}
+        {{article.format2}}
+    {% endif %}
+
+{% if article.editor %}
+        edited by
+        {% assign editorCount = article.editor | size %}
+    {% if article.editor == 'Blaise Larmee' %}
+        <a class='a2' href='{{ site.url }}/role/editor'>Blaise Larmee</a>
+    {% else %}
+        {% for editor in article.editor %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ editor | slugify }}'>{{ editor }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ editor | slugify }}'>{{ editor }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ editor | slugify }}'>{{ editor }}</a>{% endif %}{% endfor %}
+    {% endif %}
+{% endif %}
+
+    {% assign authorCount = article.author | size %}
+    {% if authorCount == 0 and article.format %}
+        by <a class='a2' href='{{ site.url }}/role/author'>Blaise Larmee</a>.
+    {% elsif authorCount == 1 %}
+        by <a class='a2' href='{{ site.url }}/people/aidan-koch'>Aidan Koch</a>.
+    {% else %}
+        {% for author in article.author %}{% if forloop.first %}featuring <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}.</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %}
+    {% endif %}
+
+{% if article.pub %}
+        It was
+    {% if article.pub == 'self-published' %}
+        <a class='a2' href='{{ site.url }}/publisher/self-published'>self-published</a>
+    {% else %}
+        published by
+        {% assign pubCount = article.pub | size %}
+        {% for pub in article.pub %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% else %}, <a class='a2' href='{{ site.url }}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% endif %}{% endfor %}
+    {% endif %}
+{% endif %}
+
+    {% if article.pubdate %}
+        in <a class='a2' href='{{ site.url }}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>{% if article.edition %}{% else %}.{% endif %}
+    {% endif %}
+    {% if article.edition %}
+        in an edition of {{article.edition}}.
+    {% endif %}
+
+{% if article.pages %}
+        It is {{article.pages}} pages,
+    {% if article.width == 8.3 and article.height == 11.7 %}
+        <a class='a2' href='{{ site.url }}/size/a4'>A4</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 11.7 and article.height == 16.5 %}
+        <a class='a2' href='{{ site.url }}/size/a3'>A3</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 6.9 and article.height == 9.8 %}
+        <a class='a2' href='{{ site.url }}/size/b5'>B5</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 8.5 and article.height == 11 %}
+        <a class='a2' href='{{ site.url }}/size/letter'>letter size</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 5.5 and article.height == 8.5 %}
+        <a class='a2' href='{{ site.url }}/size/half-letter'>half letter</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 7 and article.height == 8.5 %}
+        <a class='a2' href='{{ site.url }}/size/half-legal'>half legal</a> ({{article.width}} by {{article.height}} inches),
+    {% else %}
+        {{article.width}} by {{article.height}} inches,
+    {% endif %}
+{% endif %}
+
+{% if article.binding %} bound with
+    {% for binding in article.binding %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% else %}, <a class='a2' href='{{ site.url }}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% endif %}{% endfor %},
+{% endif %}
+
+    {% if article.print %}
+        and {% for print in article.print %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/print/{{ print | slugify }}'>{{ print }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/print/{{ print | slugify }}'>{{ print }}</a>{% else %}, <a class='a2' href='{{ site.url }}/print/{{ print | slugify }}'>{{ print }}</a>{% endif %}{% endfor %} printed in
+    {% endif %}
+
+    {% if article.ink %}
+        {% for ink in article.ink %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% else %}, <a class='a2' href='{{ site.url }}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% endif %}{% endfor %}.
+    {% endif %}
+
+    {% if article.printer %}
+        It was printed by <a class='a2' href='{{ site.url }}/publisher/{{ article.printer | slugify }}'>{{ article.printer }}</a>.
+    {% endif %}
+
+    {% if article.cover %}
+        The cover is by <a class='a2' href='{{ site.url }}/people/{{ article.cover | slugify }}'>{{ article.cover }}</a>.
+    {% endif %}
+
+    {% if article.poster %}
+        {% assign posterCount = article.poster | size %}
+        The poster{% if authorCount == 1 %} is {% else %}s are {% endif %}by {% for poster in article.poster %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ poster | slugify }}'>{{ poster }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ poster | slugify }}'>{{ poster }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ poster | slugify }}'>{{ poster }}</a>{% endif %}{% endfor %}.
+    {% endif %}
+
+    {% if article.extra %}
+        {{article.extra}}
+    {% endif %}
+
+    </p>
+    {% if article.text0 %}
+    <p class="quote m1">"{{article.text0}}{% if article.author0 %}," said {% endif %}{% if article.link0 %}<a class='a2' href='{{article.link0}}'>{% endif %}{% if article.author0 %}{{article.author0}}{% endif %}{% if article.link0 %}</a>{% endif %}.</p>{% endif %} {% if article.text1 %}
+    <p class="quote m1">"{{article.text1}}{% if article.author1 %}," said {% endif %}{% if article.link1 %}<a class='a2' href='{{article.link1}}'>{% endif %}{% if article.author1 %}{{article.author1}}{% endif %}{% if article.link1 %}</a>{% endif %}.</p>{% endif %} {% if article.text2 %}
+    <p class="quote m1">"{{article.text2}}{% if article.author2 %}," said {% endif %}{% if article.link2 %}<a class='a2' href='{{article.link2}}'>{% endif %}{% if article.author2 %}{{article.author2}}{% endif %}{% if article.link2 %}</a>{% endif %}.</p>{% endif %} {% if article.text3 %}
+    <p class="quote m1">"{{article.text3}}{% if article.author3 %}," said {% endif %}{% if article.link3 %}<a class='a2' href='{{article.link3}}'>{% endif %}{% if article.author3 %}{{article.author3}}{% endif %}{% if article.link3 %}</a>{% endif %}.</p>{% endif %} {% if article.text4 %}
+    <p class="quote m1">"{{article.text4}}{% if article.author4 %}," said {% endif %}{% if article.link4 %}<a class='a2' href='{{article.link4}}'>{% endif %}{% if article.author4 %}{{article.author4}}{% endif %}{% if article.link4 %}</a>{% endif %}.</p>{% endif %} {% if article.text5 %}
+    <p class="quote m1">"{{article.text5}}{% if article.author5 %}," said {% endif %}{% if article.link5 %}<a class='a2' href='{{article.link5}}'>{% endif %}{% if article.author5 %}{{article.author5}}{% endif %}{% if article.link5 %}</a>{% endif %}.</p>{% endif %} {% if article.text6 %}
+    <p class="quote m1">"{{article.text6}}{% if article.author6 %}," said {% endif %}{% if article.link6 %}<a class='a2' href='{{article.link6}}'>{% endif %}{% if article.author6 %}{{article.author6}}{% endif %}{% if article.link6 %}</a>{% endif %}.</p>{% endif %} {% if article.text7 %}
+    <p class="quote m1">"{{article.text7}}{% if article.author7 %}," said {% endif %}{% if article.link7 %}<a class='a2' href='{{article.link7}}'>{% endif %}{% if article.author7 %}{{article.author7}}{% endif %}{% if article.link7 %}</a>{% endif %}.</p>{% endif %} {% if article.text8 %}
+    <p class="quote m1">"{{article.text8}}{% if article.author8 %}," said {% endif %}{% if article.link8 %}<a class='a2' href='{{article.link8}}'>{% endif %}{% if article.author8 %}{{article.author8}}{% endif %}{% if article.link8 %}</a>{% endif %}.</p>{% endif %} {% if article.text9 %}
+    <p class="quote m1">"{{article.text9}}{% if article.author9 %}," said {% endif %}{% if article.link9 %}<a class='a2' href='{{article.link9}}'>{% endif %}{% if article.author9 %}{{article.author9}}{% endif %}{% if article.link9 %}</a>{% endif %}.</p>{% endif %} {% if article.text10 %}
+    <p class="quote m1">"{{article.text10}}{% if article.author10 %}," said {% endif %}{% if article.link10 %}<a class='a2' href='{{article.link10}}'>{% endif %}{% if article.author10 %}{{article.author10}}{% endif %}{% if article.link10 %}</a>{% endif %}.</p>{% endif %} {% if article.text11 %}
+    <p class="quote m1">"{{article.text11}}{% if article.author11 %}," said {% endif %}{% if article.link11 %}<a class='a2' href='{{article.link11}}'>{% endif %}{% if article.author11 %}{{article.author11}}{% endif %}{% if article.link11 %}</a>{% endif %}.</p>{% endif %} {% if article.text12 %}
+    <p class="quote m1">"{{article.text12}}{% if article.author12 %}," said {% endif %}{% if article.link12 %}<a class='a2' href='{{article.link12}}'>{% endif %}{% if article.author12 %}{{article.author12}}{% endif %}{% if article.link12 %}</a>{% endif %}.</p>{% endif %} {% if article.text13 %}
+    <p class="quote m1">"{{article.text13}}{% if article.author13 %}," said {% endif %}{% if article.link13 %}<a class='a2' href='{{article.link13}}'>{% endif %}{% if article.author13 %}{{article.author13}}{% endif %}{% if article.link13 %}</a>{% endif %}.</p>{% endif %} {% if article.text14 %}
+    <p class="quote m1">"{{article.text14}}{% if article.author14 %}," said {% endif %}{% if article.link14 %}<a class='a2' href='{{article.link14}}'>{% endif %}{% if article.author14 %}{{article.author14}}{% endif %}{% if article.link14 %}</a>{% endif %}.</p>{% endif %} {% if article.text15 %}
+    <p class="quote m1">"{{article.text15}}{% if article.author15 %}," said {% endif %}{% if article.link15 %}<a class='a2' href='{{article.link15}}'>{% endif %}{% if article.author15 %}{{article.author15}}{% endif %}{% if article.link15 %}</a>{% endif %}.</p>{% endif %} {% if article.text16 %}
+    <p class="quote m1">"{{article.text16}}{% if article.author16 %}," said {% endif %}{% if article.link16 %}<a class='a2' href='{{article.link16}}'>{% endif %}{% if article.author16 %}{{article.author16}}{% endif %}{% if article.link16 %}</a>{% endif %}.</p>{% endif %} {% if article.text17 %}
+    <p class="quote m1">"{{article.text17}}{% if article.author17 %}," said {% endif %}{% if article.link17 %}<a class='a2' href='{{article.link17}}'>{% endif %}{% if article.author17 %}{{article.author17}}{% endif %}{% if article.link17 %}</a>{% endif %}.</p>{% endif %} {% if article.text18 %}
+    <p class="quote m1">"{{article.text18}}{% if article.author18 %}," said {% endif %}{% if article.link18 %}<a class='a2' href='{{article.link18}}'>{% endif %}{% if article.author18 %}{{article.author18}}{% endif %}{% if article.link18 %}</a>{% endif %}.</p>{% endif %} {% if article.text19 %}
+    <p class="quote m1">"{{article.text19}}{% if article.author19 %}," said {% endif %}{% if article.link19 %}<a class='a2' href='{{article.link19}}'>{% endif %}{% if article.author19 %}{{article.author19}}{% endif %}{% if article.link19 %}</a>{% endif %}.</p>{% endif %} {% if article.text20 %}
+    <p class="quote m1">"{{article.text20}}{% if article.author20 %}," said {% endif %}{% if article.link20 %}<a class='a2' href='{{article.link20}}'>{% endif %}{% if article.author20 %}{{article.author20}}{% endif %}{% if article.link20 %}</a>{% endif %}.</p>{% endif %} {% if article.text21 %}
+    <p class="quote m1">"{{article.text21}}{% if article.author21 %}," said {% endif %}{% if article.link21 %}<a class='a2' href='{{article.link21}}'>{% endif %}{% if article.author21 %}{{article.author21}}{% endif %}{% if article.link21 %}</a>{% endif %}.</p>{% endif %} {% if article.text22 %}
+    <p class="quote m1">"{{article.text22}}{% if article.author22 %}," said {% endif %}{% if article.link22 %}<a class='a2' href='{{article.link22}}'>{% endif %}{% if article.author22 %}{{article.author22}}{% endif %}{% if article.link22 %}</a>{% endif %}.</p>{% endif %} {% if article.text23 %}
+    <p class="quote m1">"{{article.text23}}{% if article.author23 %}," said {% endif %}{% if article.link23 %}<a class='a2' href='{{article.link23}}'>{% endif %}{% if article.author23 %}{{article.author23}}{% endif %}{% if article.link23 %}</a>{% endif %}.</p>{% endif %} {% if article.text24 %}
+    <p class="quote m1">"{{article.text24}}{% if article.author24 %}," said {% endif %}{% if article.link24 %}<a class='a2' href='{{article.link24}}'>{% endif %}{% if article.author24 %}{{article.author24}}{% endif %}{% if article.link24 %}</a>{% endif %}.</p>{% endif %} {% if article.text25 %}
+    <p class="quote m1">"{{article.text25}}{% if article.author25 %}," said {% endif %}{% if article.link25 %}<a class='a2' href='{{article.link25}}'>{% endif %}{% if article.author25 %}{{article.author25}}{% endif %}{% if article.link25 %}</a>{% endif %}.</p>{% endif %} {% if article.text26 %}
+    <p class="quote m1">"{{article.text26}}{% if article.author26 %}," said {% endif %}{% if article.link26 %}<a class='a2' href='{{article.link26}}'>{% endif %}{% if article.author26 %}{{article.author26}}{% endif %}{% if article.link26 %}</a>{% endif %}.</p>{% endif %} {% if article.text27 %}
+    <p class="quote m1">"{{article.text27}}{% if article.author27 %}," said {% endif %}{% if article.link27 %}<a class='a2' href='{{article.link27}}'>{% endif %}{% if article.author27 %}{{article.author27}}{% endif %}{% if article.link27 %}</a>{% endif %}.</p>{% endif %} {% if article.text28 %}
+    <p class="quote m1">"{{article.text28}}{% if article.author28 %}," said {% endif %}{% if article.link28 %}<a class='a2' href='{{article.link28}}'>{% endif %}{% if article.author28 %}{{article.author28}}{% endif %}{% if article.link28 %}</a>{% endif %}.</p>{% endif %} {% if article.text29 %}
+    <p class="quote m1">"{{article.text29}}{% if article.author29 %}," said {% endif %}{% if article.link29 %}<a class='a2' href='{{article.link29}}'>{% endif %}{% if article.author29 %}{{article.author29}}{% endif %}{% if article.link29 %}</a>{% endif %}.</p>{% endif %} {% if article.text30 %}
+    <p class="quote m1">"{{article.text30}}{% if article.author30 %}," said {% endif %}{% if article.link30 %}<a class='a2' href='{{article.link30}}'>{% endif %}{% if article.author30 %}{{article.author30}}{% endif %}{% if article.link30 %}</a>{% endif %}.</p>{% endif %} {% if article.text31 %}
+    <p class="quote m1">"{{article.text31}}{% if article.author31 %}," said {% endif %}{% if article.link31 %}<a class='a2' href='{{article.link31}}'>{% endif %}{% if article.author31 %}{{article.author31}}{% endif %}{% if article.link31 %}</a>{% endif %}.</p>{% endif %} {% if article.text32 %}
+    <p class="quote m1">"{{article.text32}}{% if article.author32 %}," said {% endif %}{% if article.link32 %}<a class='a2' href='{{article.link32}}'>{% endif %}{% if article.author32 %}{{article.author32}}{% endif %}{% if article.link32 %}</a>{% endif %}.</p>{% endif %} {% if article.text33 %}
+    <p class="quote m1">"{{article.text33}}{% if article.author33 %}," said {% endif %}{% if article.link33 %}<a class='a2' href='{{article.link33}}'>{% endif %}{% if article.author33 %}{{article.author33}}{% endif %}{% if article.link33 %}</a>{% endif %}.</p>{% endif %} {% if article.text34 %}
+    <p class="quote m1">"{{article.text34}}{% if article.author34 %}," said {% endif %}{% if article.link34 %}<a class='a2' href='{{article.link34}}'>{% endif %}{% if article.author34 %}{{article.author34}}{% endif %}{% if article.link34 %}</a>{% endif %}.</p>{% endif %} {% if article.text35 %}
+    <p class="quote m1">"{{article.text35}}{% if article.author35 %}," said {% endif %}{% if article.link35 %}<a class='a2' href='{{article.link35}}'>{% endif %}{% if article.author35 %}{{article.author35}}{% endif %}{% if article.link35 %}</a>{% endif %}.</p>{% endif %} {% if article.text36 %}
+    <p class="quote m1">"{{article.text36}}{% if article.author36 %}," said {% endif %}{% if article.link36 %}<a class='a2' href='{{article.link36}}'>{% endif %}{% if article.author36 %}{{article.author36}}{% endif %}{% if article.link36 %}</a>{% endif %}.</p>{% endif %}
+</div>
+{% endif %}

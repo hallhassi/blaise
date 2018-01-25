@@ -1,0 +1,221 @@
+{% if article.bio %}
+<div>
+    <p>
+      {{article.bio}}
+    </p>
+</div>
+{% if article.url == '/' %}
+<div>
+    <p>
+      {% assign sum = 0 %}
+      {% for article in site.posts %}
+      {% assign sum = sum | plus: 1 %}
+      {% endfor %}
+      {% assign sum2 = 0 %}
+      {% for article in site.posts %}
+      {% assign sum2 = sum2 | plus: article.images %}
+      {% endfor %}
+      {% assign sum3 = 0 %}
+      {% for article in site.posts %}
+      {% if article.youtube %}
+      {% assign sum3 = sum3 | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      {% capture sum4 %}
+      {% for article in site.posts %}
+      {% include text-tag2-word-count.html %}
+      {% endfor %}
+      {% endcapture %}
+      This site contains {{ sum4 | number_of_words }} <a class='a2' href='{{site.url}}/all/words'>words</a>, {{ sum | plus: sum2 }} <a class='a2' href='{{site.url}}/all/images'>images</a>, and {{ sum3 }} <a class='a2' href='{{site.url}}/all/videos'>videos</a>.
+    </p>
+</div>
+{% endif %}
+{% elsif article.description %}
+<div>
+    <p class='m1'>
+        {{article.description}}
+    </p>
+</div>
+{% elsif article.format == 'sketchbook' %}
+<div>
+    <p class='m1'>
+        {{article.title}} is a <a class='a2' href='{{ site.url}}/format/{{article.format}}'>{{article.format}}</a> by Blaise Larmee{% if article.format2 %} {{article.format2}}{% endif %}. <span class='hide'>It was drawn {% if article.place %}at <a class='a2' href='{{ site.url}}/place/{{ article.place| slugify }}'>{{ article.place }}</a> {% endif %}in <a class='a2' href='{{ site.url}}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>.</span>
+    </p>
+</div>
+{% elsif article.format == 'event' %}
+<div>
+    <p class='m1'>
+        {{article.title}} was an <a class='a2' href='{{ site.url}}/format/{{article.format}}'>{{article.format}}</a> organized by {% if article.publisher %} <a class='a2' href='{{ site.url}}/publisher/{{ article.pub }}'>{{ article.publisher }}</a>{% endif %}{% if article.editor %} and <a class='a2' href='{{ site.url}}/people/{{ editor | slugify }}'>{{ article.editor }}</a>{% endif %}<span class='hide'> featuring {% for author in article.author %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %} at {{ article.place }} on {{ article.pubdate0 }}, <a class='a2' href='{{ site.url}}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a></span>.
+    </p>
+</div>
+{% elsif article.format == 'exhibition' %}
+<div>
+    <p class='m1'>
+        {{article.title}} is an <a class='a2' href='{{ site.url}}/format/{{article.format}}'>{{article.format}}</a> by Blaise Larmee. <span class='hide'>It took place{% if article.place %} at <a class='a2' href='{{ site.url}}/place/{{ article.place| slugify }}'>{{ article.place }}</a> {% endif %} in {{ article.pubdate0 }}, <a class='a2' href='{{ site.url}}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>. "{{ article.extra }}"</span>
+    </p>
+</div>
+{% elsif article.format == 'drawings' %}
+<div>
+    <p class='m1'>
+        {{article.title}}{% if article.pubdateb %} is a series of {% else %} is a group of {% endif %}<a class='a2' href='{{ site.url}}/format/{{article.format}}'>{{article.format}}</a>{% if article.author %} by Blaise Larmee in collaboration<span class='hide'> with {% for author in article.author %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %}{% else %} by Blaise Larmee{% endif %} from <a class='a2' href='{{ site.url}}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>{% if article.pubdateb %} to <a class='a2' href='{{ site.url}}/year/{{ article.pubdateb | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdateb }}</a>{% endif %}</span>.
+    </p>
+</div>
+{% elsif article.layout == 'default' %}
+<div>
+    <p class='m1'>
+    {% if article.title %}
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a><span class='hide5'> is</span>
+    {% endif %}
+    {% if article.format %}<span class='hide5'>
+        a{% capture firstletter %}{{ article.format | truncate: 1, '' }}{% endcapture %}{% if firstletter contains 'a' or firstletter contains 'e' or firstletter contains 'i' or firstletter contains 'o' or firstletter contains 'u' %}n{% endif %}
+        <a class='a2' href='{{ site.url}}/format/{{ article.format }}'>{{article.format}}</a></span>
+    {% endif %}
+    {% if article.format2 %}<span class='hide5'>
+        {{article.format2}}</span>
+    {% endif %}
+
+{% if article.editor %}
+        <span class='hide5'>edited by</span>
+        {% assign editorCount = article.editor | size %}
+    {% if article.editor == 'Blaise Larmee' %}
+        <span class='hide5'><a class='a2' href='{{ site.url}}/role/editor'>Blaise Larmee</a>.</span>
+    {% else %}
+        <span class='hide5'>{% for editor in article.editor %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/people/{{ editor | slugify }}'>{{ editor }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/people/{{ editor | slugify }}'>{{ editor }}</a>{% else %}, <a class='a2' href='{{ site.url}}/people/{{ editor | slugify }}'>{{ editor }}</a>{% endif %}{% endfor %}.</span>
+    {% endif %}
+{% endif %}
+
+    {% assign authorCount = article.author | size %}
+    {% if authorCount == 0 and article.format %}
+        <span class='hide5'>by <a class='a2' href='{{ site.url}}/role/author'>Blaise Larmee</a>.</span>
+    {% elsif authorCount == 1 %}
+        <span class='hide5'>by <a class='a2' href='{{ site.url}}/people/aidan-koch'>Aidan Koch</a>.</span>
+    {% else %}
+      <span class='hide2'>
+        {% for author in article.author %}{% if forloop.first %}featuring <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>.{% else %}, <a class='a2' href='{{ site.url}}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %}
+      </span>
+    {% endif %}
+
+    {% if article.pub %}
+    <span class='hide4'>
+            It was
+        {% if article.pub == 'self-published' %}
+            <a class='a2' href='{{ site.url}}/publisher/self-published'>self-published</a>
+        {% else %}
+            published by
+            {% assign pubCount = article.pub | size %}
+            {% for pub in article.pub %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% else %}, <a class='a2' href='{{ site.url}}/publisher/{{ pub | slugify }}'>{{ pub }}</a>{% endif %}{% endfor %}
+        {% endif %}
+    </span>
+    {% endif %}
+
+    {% if article.pubdate %}
+    <span class='hide4'>
+        in <a class='a2' href='{{ site.url}}/year/{{ article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ article.pubdate }}</a>{% if article.edition %}{% else %}.{% endif %}
+    </span>
+    {% endif %}
+    {% if article.edition %}
+    <span class='hide4'>
+        in an edition of {{article.edition}}.
+    </span>
+    {% endif %}
+
+{% if article.pages %}
+<span class='hide3'>
+        It is {{article.pages}} pages,
+    {% if article.width == 8.3 and article.height == 11.7 %}
+        <a class='a2' href='{{ site.url}}/size/a4'>A4</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 11.7 and article.height == 16.5 %}
+        <a class='a2' href='{{ site.url}}/size/a3'>A3</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 6.9 and article.height == 9.8 %}
+        <a class='a2' href='{{ site.url}}/size/b5'>B5</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 8.5 and article.height == 11 %}
+        <a class='a2' href='{{ site.url}}/size/letter'>letter size</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 5.5 and article.height == 8.5 %}
+        <a class='a2' href='{{ site.url}}/size/half-letter'>half letter</a> ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 7 and article.height == 8.5 %}
+        <a class='a2' href='{{ site.url}}/size/half-legal'>half legal</a> ({{article.width}} by {{article.height}} inches),
+    {% else %}
+        {{article.width}} by {{article.height}} inches,
+    {% endif %}
+</span>
+{% endif %}
+
+{% if article.binding %}
+<span class='hide3'> bound with
+    {% for binding in article.binding %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% else %}, <a class='a2' href='{{ site.url}}/binding/{{ binding | slugify }}'>{{ binding }}</a>{% endif %}{% endfor %},
+</span>
+{% endif %}
+
+    {% if article.print %}
+    <span class='hide3'>
+        and {% for print in article.print %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/print/{{ print | slugify }}'>{{ print }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/print/{{ print | slugify }}'>{{ print }}</a>{% else %}, <a class='a2' href='{{ site.url}}/print/{{ print | slugify }}'>{{ print }}</a>{% endif %}{% endfor %} printed in
+    </span>
+    {% endif %}
+
+    {% if article.ink %}
+    <span class='hide3'>
+        {% for ink in article.ink %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% else %}, <a class='a2' href='{{ site.url}}/ink/{{ ink | slugify }}'>{{ ink }}</a>{% endif %}{% endfor %}.
+    </span>
+    {% endif %}
+
+    {% if article.printer %}
+    <span class='hide3'>
+        It was printed by <a class='a2' href='{{ site.url}}/publisher/{{ article.printer | slugify }}'>{{ article.printer }}</a>.
+    </span>
+    {% endif %}
+
+    {% if article.cover %}
+    <span class='hide3'>
+        The cover is by <a class='a2' href='{{ site.url}}/people/{{ article.cover | slugify }}'>{{ article.cover }}</a>.
+    </span>
+    {% endif %}
+
+    {% if article.poster %}
+    <span class='hide3'>
+        {% assign posterCount = article.poster | size %}
+        The poster{% if authorCount == 1 %} is {% else %}s are {% endif %}by {% for poster in article.poster %}{% if forloop.first %}<a class='a2' href='{{ site.url}}/people/{{ poster | slugify }}'>{{ poster }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url}}/people/{{ poster | slugify }}'>{{ poster }}</a>{% else %}, <a class='a2' href='{{ site.url}}/people/{{ poster | slugify }}'>{{ poster }}</a>{% endif %}{% endfor %}.
+    </span>
+    {% endif %}
+
+    {% if article.extra %}
+    <span class='hide3'>
+        {{article.extra}}
+    </span>
+    {% endif %}
+
+    </p>
+</div>
+{% elsif article.layout == 'all' %}
+{% assign sum = 0 %}
+{% for article in site.posts %}
+{% assign sum = sum | plus: 1 %}
+{% endfor %}
+{% assign sum2 = 0 %}
+{% for article in site.posts %}
+{% assign sum2 = sum2 | plus: article.images %}
+{% endfor %}
+{% assign sum3 = 0 %}
+{% for article in site.posts %}
+{% if article.youtube %}
+{% assign sum3 = sum3 | plus: 1 %}
+{% endif %}
+{% endfor %}
+{% capture sum4 %}
+{% for article in site.posts %}
+{% include text-tag2-word-count.html %}
+{% endfor %}
+{% endcapture %}
+{% if article.url == '/all/images/' %}
+<p class='m1'>
+Displaying {{ sum2 }} of {{ sum | plus: sum2 }} images.
+</p>
+{% elsif article.url == '/all/videos/' %}
+<p class='m1'>
+Displaying {{ sum3 }} of {{ sum3 }} videos.
+</p>
+{% elsif article.url == '/all/words/' %}
+<p class='m1'>
+Displaying {{ sum4 | number_of_words }} of {{ sum4 | number_of_words }} words.
+</p>
+{% endif %}
+{% endif %}

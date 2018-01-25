@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body class='bg'>
+{% include navigation.html %}
+{% include text-tag.html %}
+<div class='p'>
+
+{% if page.url == '/all/index.html' %}
+  {% assign sorted = site.all | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/ink/index.html' %}
+  {% assign sorted = site.ink | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/binding/index.html' %}
+  {% assign sorted = site.binding | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/people/index.html' %}
+{% assign sorted = site.people | sort:"title" %}
+<div class='left taglist'>
+{% for item in sorted limit:110%}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title }}
+    </a>
+  </p>
+{% endfor %}
+</div>
+<div class='left'>
+{% for item in sorted offset:110%}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title }}
+    </a>
+  </p>
+{% endfor %}
+</div>
+{% endif %}
+
+{% if page.url == '/place/index.html' %}
+  {% assign sorted = site.place | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/print/index.html' %}
+  {% assign sorted = site.print | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/publisher/index.html' %}
+  {% assign sorted = site.publisher | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+
+{% if page.url == '/role/index.html' %}
+  {% assign sorted = site.role | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/size/index.html' %}
+  {% assign sorted = site.size | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/format/index.html' %}
+  {% assign sorted = site.format | sort:"title" %}
+  {% for item in sorted %}
+  <p>
+    <a class='a2' href="{{ item.url }}">
+      {{ item.title | downcase }}
+    </a>
+  </p>
+  {% endfor %}
+{% endif %}
+
+{% if page.url == '/year/index.html' %}
+{% assign sorted = site.year | sort:"title" %}
+{% for item in sorted %}
+<p>
+  <a class='a2' href="{{ item.url }}">
+    {{ item.title | upcase }}
+  </a>
+</p>
+{% endfor %}
+{% endif %}
+
+</div>
+{% include clipboard.html %}
+</body>
+</html>

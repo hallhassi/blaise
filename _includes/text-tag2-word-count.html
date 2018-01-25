@@ -1,0 +1,197 @@
+{% if article.bio %}
+
+
+      {{article.bio}}
+
+
+{% if article.url == '/' %}
+
+
+      {% assign sum = 0 %}
+      {% for article in site.posts %}
+      {% assign sum = sum | plus: 1 %}
+      {% endfor %}
+      {% assign sum2 = 0 %}
+      {% for article in site.posts %}
+      {% assign sum2 = sum2 | plus: article.images %}
+      {% endfor %}
+      {% assign sum3 = 0 %}
+      {% for article in site.posts %}
+      {% if article.youtube %}
+      {% assign sum3 = sum3 | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      This site contains {{ sum }} works, {{ sum2 | plus: sum1 }} images, and {{ sum3 }} videos.
+
+
+{% endif %}
+{% elsif article.description %}
+
+
+        {{article.description}}
+
+
+{% elsif article.format == 'sketchbook' %}
+
+
+        {{article.title}} is a {{article.format}} by Blaise Larmee{% if article.format2 %} {{article.format2}}{% endif %}. It was drawn {% if article.place %}at {{ article.place }} {% endif %}in {{ article.pubdate }}.
+
+
+{% elsif article.format == 'event' %}
+
+
+        {{article.title}} was an {{article.format}} organized by {% if article.publisher %} {{ article.publisher }}{% endif %}{% if article.editor %} and {{ article.editor }}{% endif %} featuring {% for author in article.author %}{% if forloop.first %}{{ author }}{% elsif forloop.last %} and {{ author }}{% else %}, {{ author }}{% endif %}{% endfor %} at {{ article.place }} on {{ article.pubdate0 }}, {{ article.pubdate }}.
+
+
+{% elsif article.format == 'exhibition' %}
+
+
+        {{article.title}} is an {{article.format}} by Blaise Larmee. It took place{% if article.place %} at {{ article.place }} {% endif %} in {{ article.pubdate0 }}, {{ article.pubdate }}. "{{ article.extra }}"
+
+
+{% elsif article.format == 'drawings' %}
+
+
+        {{article.title}}{% if article.pubdateb %} is a series of {% else %} is a group of {% endif %}{{article.format}}{% if article.author %} by Blaise Larmee in collaboration with {% for author in article.author %}{% if forloop.first %}{{ author }}{% elsif forloop.last %} and {{ author }}{% else %}, {{ author }}{% endif %}{% endfor %}{% else %} by Blaise Larmee{% endif %} from {{ article.pubdate }}{% if article.pubdateb %} to {{ article.pubdateb }}{% endif %}.
+
+
+{% elsif article.layout == 'default' %}
+
+
+    {% if article.title %}
+        {{article.title}} is
+    {% endif %}
+    {% if article.format %}
+        a{% capture firstletter %}{{ article.format | truncate: 1, '' }}{% endcapture %}{% if firstletter contains 'a' or firstletter contains 'e' or firstletter contains 'i' or firstletter contains 'o' or firstletter contains 'u' %}n{% endif %}
+        {{article.format}}
+    {% endif %}
+    {% if article.format2 %}
+        {{article.format2}}
+    {% endif %}
+
+{% if article.editor %}
+        edited by
+        {% assign editorCount = article.editor | size %}
+    {% if article.editor == 'Blaise Larmee' %}
+        Blaise Larmee
+    {% else %}
+        {% for editor in article.editor %}{% if forloop.first %}{{ editor }}{% elsif forloop.last %} and {{ editor }}{% else %}, {{ editor }}{% endif %}{% endfor %}
+    {% endif %}
+{% endif %}
+
+    {% assign authorCount = article.author | size %}
+    {% if authorCount == 0 and article.format %}
+        by Blaise Larmee.
+    {% elsif authorCount == 1 %}
+        by Aidan Koch.
+    {% else %}
+        {% for author in article.author %}{% if forloop.first %}featuring {{ author }}{% elsif forloop.last %} and {{ author }}.{% else %}, {{ author }}{% endif %}{% endfor %}
+    {% endif %}
+
+{% if article.pub %}
+        It was
+    {% if article.pub == 'self-published' %}
+        self-published
+    {% else %}
+        published by
+        {% assign pubCount = article.pub | size %}
+        {% for pub in article.pub %}{% if forloop.first %}{{ pub }}{% elsif forloop.last %} and {{ pub }}{% else %}, {{ pub }}{% endif %}{% endfor %}
+    {% endif %}
+{% endif %}
+
+    {% if article.pubdate %}
+        in {{ article.pubdate }}{% if article.edition %}{% else %}.{% endif %}
+    {% endif %}
+    {% if article.edition %}
+        in an edition of {{article.edition}}.
+    {% endif %}
+
+{% if article.pages %}
+        It is {{article.pages}} pages,
+    {% if article.width == 8.3 and article.height == 11.7 %}
+        A4 ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 11.7 and article.height == 16.5 %}
+        A3 ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 6.9 and article.height == 9.8 %}
+        B5 ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 8.5 and article.height == 11 %}
+        letter size ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 5.5 and article.height == 8.5 %}
+        half letter ({{article.width}} by {{article.height}} inches),
+    {% elsif article.width == 7 and article.height == 8.5 %}
+        half legal ({{article.width}} by {{article.height}} inches),
+    {% else %}
+        {{article.width}} by {{article.height}} inches,
+    {% endif %}
+{% endif %}
+
+{% if article.binding %} bound with
+    {% for binding in article.binding %}{% if forloop.first %}{{ binding }}{% elsif forloop.last %} and {{ binding }}{% else %}, {{ binding }}{% endif %}{% endfor %},
+{% endif %}
+
+    {% if article.print %}
+        and {% for print in article.print %}{% if forloop.first %}{{ print }}{% elsif forloop.last %} and {{ print }}{% else %}, {{ print }}{% endif %}{% endfor %} printed in
+    {% endif %}
+
+    {% if article.ink %}
+        {% for ink in article.ink %}{% if forloop.first %}{{ ink }}{% elsif forloop.last %} and {{ ink }}{% else %}, {{ ink }}{% endif %}{% endfor %}.
+    {% endif %}
+
+    {% if article.printer %}
+        It was printed by {{ article.printer }}.
+    {% endif %}
+
+    {% if article.cover %}
+        The cover is by {{ article.cover }}.
+    {% endif %}
+
+    {% if article.poster %}
+        {% assign posterCount = article.poster | size %}
+        The poster{% if authorCount == 1 %} is {% else %}s are {% endif %}by {% for poster in article.poster %}{% if forloop.first %}{{ poster }}{% elsif forloop.last %} and {{ poster }}{% else %}, {{ poster }}{% endif %}{% endfor %}.
+    {% endif %}
+
+    {% if article.extra %}
+        {{article.extra}}
+    {% endif %}
+
+
+    {% if article.text0 %}
+    "{{article.text0}}{% if article.author0 %}," said {% endif %}{% if article.link0 %}{% endif %}{% if article.author0 %}{{article.author0}}{% endif %}{% if article.link0 %}{% endif %}.{% endif %} {% if article.text1 %}
+    "{{article.text1}}{% if article.author1 %}," said {% endif %}{% if article.link1 %}{% endif %}{% if article.author1 %}{{article.author1}}{% endif %}{% if article.link1 %}{% endif %}.{% endif %} {% if article.text2 %}
+    "{{article.text2}}{% if article.author2 %}," said {% endif %}{% if article.link2 %}{% endif %}{% if article.author2 %}{{article.author2}}{% endif %}{% if article.link2 %}{% endif %}.{% endif %} {% if article.text3 %}
+    "{{article.text3}}{% if article.author3 %}," said {% endif %}{% if article.link3 %}{% endif %}{% if article.author3 %}{{article.author3}}{% endif %}{% if article.link3 %}{% endif %}.{% endif %} {% if article.text4 %}
+    "{{article.text4}}{% if article.author4 %}," said {% endif %}{% if article.link4 %}{% endif %}{% if article.author4 %}{{article.author4}}{% endif %}{% if article.link4 %}{% endif %}.{% endif %} {% if article.text5 %}
+    "{{article.text5}}{% if article.author5 %}," said {% endif %}{% if article.link5 %}{% endif %}{% if article.author5 %}{{article.author5}}{% endif %}{% if article.link5 %}{% endif %}.{% endif %} {% if article.text6 %}
+    "{{article.text6}}{% if article.author6 %}," said {% endif %}{% if article.link6 %}{% endif %}{% if article.author6 %}{{article.author6}}{% endif %}{% if article.link6 %}{% endif %}.{% endif %} {% if article.text7 %}
+    "{{article.text7}}{% if article.author7 %}," said {% endif %}{% if article.link7 %}{% endif %}{% if article.author7 %}{{article.author7}}{% endif %}{% if article.link7 %}{% endif %}.{% endif %} {% if article.text8 %}
+    "{{article.text8}}{% if article.author8 %}," said {% endif %}{% if article.link8 %}{% endif %}{% if article.author8 %}{{article.author8}}{% endif %}{% if article.link8 %}{% endif %}.{% endif %} {% if article.text9 %}
+    "{{article.text9}}{% if article.author9 %}," said {% endif %}{% if article.link9 %}{% endif %}{% if article.author9 %}{{article.author9}}{% endif %}{% if article.link9 %}{% endif %}.{% endif %} {% if article.text10 %}
+    "{{article.text10}}{% if article.author10 %}," said {% endif %}{% if article.link10 %}{% endif %}{% if article.author10 %}{{article.author10}}{% endif %}{% if article.link10 %}{% endif %}.{% endif %} {% if article.text11 %}
+    "{{article.text11}}{% if article.author11 %}," said {% endif %}{% if article.link11 %}{% endif %}{% if article.author11 %}{{article.author11}}{% endif %}{% if article.link11 %}{% endif %}.{% endif %} {% if article.text12 %}
+    "{{article.text12}}{% if article.author12 %}," said {% endif %}{% if article.link12 %}{% endif %}{% if article.author12 %}{{article.author12}}{% endif %}{% if article.link12 %}{% endif %}.{% endif %} {% if article.text13 %}
+    "{{article.text13}}{% if article.author13 %}," said {% endif %}{% if article.link13 %}{% endif %}{% if article.author13 %}{{article.author13}}{% endif %}{% if article.link13 %}{% endif %}.{% endif %} {% if article.text14 %}
+    "{{article.text14}}{% if article.author14 %}," said {% endif %}{% if article.link14 %}{% endif %}{% if article.author14 %}{{article.author14}}{% endif %}{% if article.link14 %}{% endif %}.{% endif %} {% if article.text15 %}
+    "{{article.text15}}{% if article.author15 %}," said {% endif %}{% if article.link15 %}{% endif %}{% if article.author15 %}{{article.author15}}{% endif %}{% if article.link15 %}{% endif %}.{% endif %} {% if article.text16 %}
+    "{{article.text16}}{% if article.author16 %}," said {% endif %}{% if article.link16 %}{% endif %}{% if article.author16 %}{{article.author16}}{% endif %}{% if article.link16 %}{% endif %}.{% endif %} {% if article.text17 %}
+    "{{article.text17}}{% if article.author17 %}," said {% endif %}{% if article.link17 %}{% endif %}{% if article.author17 %}{{article.author17}}{% endif %}{% if article.link17 %}{% endif %}.{% endif %} {% if article.text18 %}
+    "{{article.text18}}{% if article.author18 %}," said {% endif %}{% if article.link18 %}{% endif %}{% if article.author18 %}{{article.author18}}{% endif %}{% if article.link18 %}{% endif %}.{% endif %} {% if article.text19 %}
+    "{{article.text19}}{% if article.author19 %}," said {% endif %}{% if article.link19 %}{% endif %}{% if article.author19 %}{{article.author19}}{% endif %}{% if article.link19 %}{% endif %}.{% endif %} {% if article.text20 %}
+    "{{article.text20}}{% if article.author20 %}," said {% endif %}{% if article.link20 %}{% endif %}{% if article.author20 %}{{article.author20}}{% endif %}{% if article.link20 %}{% endif %}.{% endif %} {% if article.text21 %}
+    "{{article.text21}}{% if article.author21 %}," said {% endif %}{% if article.link21 %}{% endif %}{% if article.author21 %}{{article.author21}}{% endif %}{% if article.link21 %}{% endif %}.{% endif %} {% if article.text22 %}
+    "{{article.text22}}{% if article.author22 %}," said {% endif %}{% if article.link22 %}{% endif %}{% if article.author22 %}{{article.author22}}{% endif %}{% if article.link22 %}{% endif %}.{% endif %} {% if article.text23 %}
+    "{{article.text23}}{% if article.author23 %}," said {% endif %}{% if article.link23 %}{% endif %}{% if article.author23 %}{{article.author23}}{% endif %}{% if article.link23 %}{% endif %}.{% endif %} {% if article.text24 %}
+    "{{article.text24}}{% if article.author24 %}," said {% endif %}{% if article.link24 %}{% endif %}{% if article.author24 %}{{article.author24}}{% endif %}{% if article.link24 %}{% endif %}.{% endif %} {% if article.text25 %}
+    "{{article.text25}}{% if article.author25 %}," said {% endif %}{% if article.link25 %}{% endif %}{% if article.author25 %}{{article.author25}}{% endif %}{% if article.link25 %}{% endif %}.{% endif %} {% if article.text26 %}
+    "{{article.text26}}{% if article.author26 %}," said {% endif %}{% if article.link26 %}{% endif %}{% if article.author26 %}{{article.author26}}{% endif %}{% if article.link26 %}{% endif %}.{% endif %} {% if article.text27 %}
+    "{{article.text27}}{% if article.author27 %}," said {% endif %}{% if article.link27 %}{% endif %}{% if article.author27 %}{{article.author27}}{% endif %}{% if article.link27 %}{% endif %}.{% endif %} {% if article.text28 %}
+    "{{article.text28}}{% if article.author28 %}," said {% endif %}{% if article.link28 %}{% endif %}{% if article.author28 %}{{article.author28}}{% endif %}{% if article.link28 %}{% endif %}.{% endif %} {% if article.text29 %}
+    "{{article.text29}}{% if article.author29 %}," said {% endif %}{% if article.link29 %}{% endif %}{% if article.author29 %}{{article.author29}}{% endif %}{% if article.link29 %}{% endif %}.{% endif %} {% if article.text30 %}
+    "{{article.text30}}{% if article.author30 %}," said {% endif %}{% if article.link30 %}{% endif %}{% if article.author30 %}{{article.author30}}{% endif %}{% if article.link30 %}{% endif %}.{% endif %} {% if article.text31 %}
+    "{{article.text31}}{% if article.author31 %}," said {% endif %}{% if article.link31 %}{% endif %}{% if article.author31 %}{{article.author31}}{% endif %}{% if article.link31 %}{% endif %}.{% endif %} {% if article.text32 %}
+    "{{article.text32}}{% if article.author32 %}," said {% endif %}{% if article.link32 %}{% endif %}{% if article.author32 %}{{article.author32}}{% endif %}{% if article.link32 %}{% endif %}.{% endif %} {% if article.text33 %}
+    "{{article.text33}}{% if article.author33 %}," said {% endif %}{% if article.link33 %}{% endif %}{% if article.author33 %}{{article.author33}}{% endif %}{% if article.link33 %}{% endif %}.{% endif %} {% if article.text34 %}
+    "{{article.text34}}{% if article.author34 %}," said {% endif %}{% if article.link34 %}{% endif %}{% if article.author34 %}{{article.author34}}{% endif %}{% if article.link34 %}{% endif %}.{% endif %} {% if article.text35 %}
+    "{{article.text35}}{% if article.author35 %}," said {% endif %}{% if article.link35 %}{% endif %}{% if article.author35 %}{{article.author35}}{% endif %}{% if article.link35 %}{% endif %}.{% endif %} {% if article.text36 %}
+    "{{article.text36}}{% if article.author36 %}," said {% endif %}{% if article.link36 %}{% endif %}{% if article.author36 %}{{article.author36}}{% endif %}{% if article.link36 %}{% endif %}.{% endif %}
+
+{% endif %}

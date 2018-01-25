@@ -1,0 +1,105 @@
+title: Blaise Larmee
+email: blaiselarmee@gmail.com
+description: Blaise Larmee was born to Susan Isono and Kevin Larmee in New York City on February 12, 1985.
+url: "http://blaiselarmee.com"
+collections:
+  all:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  year:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  ink:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  format:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  size:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  print:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  binding:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  publisher:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  people:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  place:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+  role:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
+defaults:
+  - scope:
+      path: ""
+      type: "all"
+    values:
+      layout: all
+  - scope:
+      path: ""
+      type: "year"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "ink"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "format"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "size"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "print"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "binding"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "publisher"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "place"
+    values:
+      layout: tag
+  - scope:
+      path: ""
+      type: "role"
+    values:
+      layout: tag

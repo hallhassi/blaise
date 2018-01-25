@@ -1,0 +1,23 @@
+{% if page.url == '/people/index.html' or page.url == '/shop/index.html' or page.collection == 'all' %}
+<a class='x1' href='#top'>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+    <polyline class="x2" stroke-miterlimit="10" points="29.031,29.016 15.031,15.016 15,15.016 1,29.016 "/>
+    </svg>
+</a>
+{% elsif page.bio or page.layout == 'dir' %}
+{% else %}
+<a class='x' href='../'>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+    <line class="x2" stroke-miterlimit="10" x1="29.031" y1="0.984" x2="1" y2="29.016"/>
+    <line class="x2" stroke-miterlimit="10" x1="1" y1="0.984" x2="29.031" y2="29.016"/>
+    </svg>
+</a>
+<a class='x1' href='#top'>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+    <polyline class="x2" stroke-miterlimit="10" points="29.031,29.016 15.031,15.016 15,15.016 1,29.016 "/>
+    </svg>
+</a>
+{% endif %}
