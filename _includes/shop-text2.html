@@ -64,7 +64,7 @@
 <div>
     <p class='m1'>
     {% if article.title %}
-        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{article.title}}</a><span class='hide5'> is</span>
+        <a class='a2' href='{{ site.url }}{{ article.url }}'>{{ article.title | replace:'Magazine','' }}</a><span class='hide5'> is</span>
     {% endif %}
     {% if article.format %}<span class='hide5'>
         a{% capture firstletter %}{{ article.format | truncate: 1, '' }}{% endcapture %}{% if firstletter contains 'a' or firstletter contains 'e' or firstletter contains 'i' or firstletter contains 'o' or firstletter contains 'u' %}n{% endif %}
