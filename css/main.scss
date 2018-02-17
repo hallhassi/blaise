@@ -50,12 +50,12 @@ article {
 
 .article {
    float: left;
-   width: 33.3333%;
+   width: 50%;
 }
 
 .article2 {
    float: left;
-   width: 66.6666%;
+   width: 50%;
 }
 
 /**
@@ -392,7 +392,7 @@ ul li:hover > ul {
 /**
  * Media
  */
-@media only screen and (min-width:480px) {
+@media only screen and (min-width:400px) {
     body .flex {
         width: 33.3333%;
         float: left;
@@ -411,10 +411,10 @@ ul li:hover > ul {
       width: 450px;
     }
 }
-@media only screen and (min-width: 700px) { .hide5 { display: inline; } }
-@media only screen and (min-width: 900px) { .hide4 { display: inline; } }
-@media only screen and (min-width: 1200px) { .hide3 { display: inline; } }
-@media only screen and (min-width: 2000px) { .hide2 { display: inline; } }
+@media only screen and (min-width: 500px) { .hide5 { display: inline; } }
+@media only screen and (min-width: 700px) { .hide4 { display: inline; } }
+@media only screen and (min-width: 900px) { .hide3 { display: inline; } }
+@media only screen and (min-width: 1200px) { .hide2 { display: inline; } }
 @media only screen and (min-width:288px) {
     .bg {
     background-image: url('../12/grid.jpg');
