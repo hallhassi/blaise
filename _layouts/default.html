@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body{% if page.bio or page.statement %} class='bg'{% else %}{% endif %}>
+<body class='bg {% if page.url == '/' %}bg-bottom{% else %}{% endif %}'>
 
 {% include navigation.html %}
 {% include image.html %}

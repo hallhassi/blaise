@@ -28,16 +28,18 @@ body {
     background-position-x: 0%;
     background-position-y: 0%;
 }
-body .noflex { width: 33.3333%; float: left; }
+body
+.noflex { width: 33.3333%; float: left; }
 .bg {
     background-image: url('../06/grid.jpg');
     background-size: 33.33333%;
     background-repeat: repeat;
+  }
+.bg-bottom {
     background-position: 100% 100%;
     background-position-x: 100%;
     background-position-y: 100%;
-}
-
+  }
 /**
  * Columns
  */
