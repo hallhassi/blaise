@@ -1,3 +1,3 @@
 ---
-bio: Book is sheets of paper bound and constrained by publishing standards.
+bio: Sheets of paper bound and constrained by publishing standards.
 ---

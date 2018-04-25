@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body class='bg {% if page.url == '/' %}bg-bottom{% else %}{% endif %}'>
+<body class='{% if page.url == '/' %}bg bg-bottom{% else %}flexbg{% endif %}'>
 
 {% include navigation.html %}
 {% include image.html %}

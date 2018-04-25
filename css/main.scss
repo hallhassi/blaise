@@ -28,8 +28,12 @@ body {
     background-position-x: 0%;
     background-position-y: 0%;
 }
-body
-.noflex { width: 33.3333%; float: left; }
+.flexbg {
+    background-size: 100%;
+    background-image: url('../25/grid.jpg');
+    background-repeat: repeat;
+}
+body .noflex { width: 33.3333%; float: left; }
 .bg {
     background-image: url('../06/grid.jpg');
     background-size: 33.33333%;
@@ -398,7 +402,7 @@ ul li:hover > ul {
         width: 33.3333%;
         float: left;
     }
-    body {
+    .flexbg {
         background-size: 33.3333%;
     }
     .p0 {
@@ -421,18 +425,23 @@ ul li:hover > ul {
     background-image: url('../12/grid.jpg');
     }
 }
+@media only screen and (min-width:400px) {
+  .flexbg {
+  background-image: url('../12/grid.jpg');
+  }
+}
 @media only screen and (min-width:582px) {
-    .bg {
+    .bg, .flexbg {
     background-image: url('../25/grid.jpg');
     }
 }
 @media only screen and (min-width:1000px) {
-    .bg {
+    .bg, .flexbg {
     background-image: url('../50/grid.jpg');
     }
 }
 @media only screen and (min-width:2400px) {
-    .bg {
+    .bg, .flexbg {
     background-image: url('../grid.jpg');
     }
 }
