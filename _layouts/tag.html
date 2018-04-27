@@ -54,6 +54,12 @@
     {% assign e1 = 'kljasdfoiwjeflasdkjf' %}
     {% endif %}
 
+    {% if article.pub == 'Gaze Books' %}
+    {% assign p8 = 'publisher' %}
+    {% else %}
+    {% assign p8 = 'kljasdfoiwjeflasdkjf' %}
+    {% endif %}
+
     {% assign authorCount = article.author | size %}
     {% if authorCount == 0 and article.format and article.format != 'drawings' and article.format != 'exhibition' and article.format != 'sketchbook' %}
     {% assign a1 = 'author' %}
@@ -61,7 +67,7 @@
     {% assign a1 = 'kljasdfoiwjeflasdkjf' %}
     {% endif %}
 
-    {% if p7 contains p1 or p6 == p1 or s1 == p1 or a1 == p1 or e1 == p1 or t1 contains p1 or z1 contains p1 or d1 contains p1 or p2 contains p1 or b1 contains p1 or p3 contains p1 or i1 contains p1 or p4 contains p1 or c1 contains p1 or p5 contains p1 %}
+    {% if p8 == p1 or p7 contains p1 or p6 == p1 or s1 == p1 or a1 == p1 or e1 == p1 or t1 contains p1 or z1 contains p1 or d1 contains p1 or p2 contains p1 or b1 contains p1 or p3 contains p1 or i1 contains p1 or p4 contains p1 or c1 contains p1 or p5 contains p1 %}
     {% include feed1.html %}
     {% endif %}
 

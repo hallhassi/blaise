@@ -92,6 +92,7 @@
         It was
     {% if article.pub == 'self-published' %}
         self-published
+    {% elsif article.pub == 'Gaze Books' %} published by Blaise Larmee as Gaze Books
     {% else %}
         published by
         {% assign pubCount = article.pub | size %}

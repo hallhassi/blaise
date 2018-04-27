@@ -32,7 +32,7 @@
       {% assign sum5 = sum5 | plus: 1 %}
       {% endif %}
       {% endfor %}
-      You can view this site as a collection of <a class='a2' href='{{site.url}}/all/words'>words</a>, <a class='a2' href='{{site.url}}/all/images'>images</a>, <a class='a2' href='{{site.url}}/all/videos'>videos</a>, or <a class='a2' href='{{site.url}}/shop'>products</a>.
+      You can view this site as a collection of <a class='a2' href='{{site.url}}/all/words'>words</a>, <a class='a2' href='{{site.url}}/all/images'>images</a>, <a class='a2' href='{{site.url}}/all/videos'>videos</a>, <a class='a2' href='{{site.url}}/all/links'>links</a>, or <a class='a2' href='{{site.url}}/shop'>products</a>.
     </p>
 </div>
 {% endif %}
@@ -103,6 +103,7 @@
         It was
     {% if page.pub == 'self-published' %}
         <a class='a2' href='{{ site.url }}/publisher/self-published'>self-published</a>
+    {% elsif page.pub == 'Gaze Books' %} published by <a class='a2' href='{{ site.url }}/role/publisher'>Blaise Larmee</a> as <a class='a2' href='{{ site.url }}/publisher/{{ page.pub | slugify }}'>{{ page.pub }}</a>
     {% else %}
         published by
         {% assign pubCount = page.pub | size %}
@@ -225,6 +226,26 @@
 {% include text-tag2-word-count.html %}
 {% endfor %}
 {% endcapture %}
+{% assign sum5 = 5 %}
+{% for article in site.posts %}
+{% if article.link8 %}
+{% assign sum5 = sum5 | plus: 8 %}
+{% elsif article.link7 %}
+{% assign sum5 = sum5 | plus: 7 %}
+{% elsif article.link6 %}
+{% assign sum5 = sum5 | plus: 6 %}
+{% elsif article.link5 %}
+{% assign sum5 = sum5 | plus: 5 %}
+{% elsif article.link4 %}
+{% assign sum5 = sum5 | plus: 4 %}
+{% elsif article.link3 %}
+{% assign sum5 = sum5 | plus: 3 %}
+{% elsif article.link2 %}
+{% assign sum5 = sum5 | plus: 2 %}
+{% elsif article.link1 %}
+{% assign sum5 = sum5 | plus: 1 %}
+{% endif %}
+{% endfor %}
 {% if page.url == '/all/images/' %}
 <p class='m1'>
 Displaying {{ sum2 }} of {{ sum | plus: sum2 }} images.
@@ -236,6 +257,10 @@ Displaying {{ sum3 }} of {{ sum3 }} videos.
 {% elsif page.url == '/all/words/' %}
 <p class='m1'>
 Displaying {{ sum4 | number_of_words }} of {{ sum4 | number_of_words }} words.
+</p>
+{% elsif page.url == '/all/links/' %}
+<p class='m1'>
+Displaying {{ sum5 }} of {{ sum5 }} links.
 </p>
 {% endif %}
 {% endif %}

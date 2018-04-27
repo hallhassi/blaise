@@ -53,6 +53,16 @@
                         <a href='http://{{ article.tictail }}'>${{ article.price }} tictail</a>
                     </li>
                     {% endif %}
+                    {% if article.printedmatter %}
+                    <li>
+                        <a href='https://www.printedmatter.org/catalog/{{ article.printedmatter }}'>${{ article.price }} Printed Matter</a>
+                    </li>
+                    {% endif %}
+                    {% if article.publicationstudio %}
+                    <li>
+                        <a href='https://{{ article.publicationstudio }}'>${{ article.price }} Publication Studio</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </li>
             {% endif %}

@@ -29,7 +29,7 @@
                 <ul>
                     {% if page.paypal %}
                     <li>
-                        <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id={{ page.paypal }}'>${{ page.price | plus:'10' }} signed</a>
+                        <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id={{ page.paypal }}'>${{ page.price | plus:'10' }}{% if page.permalink == 'aidan-koch-the-whale' %}{% else %} signed{% endif %}</a>
                     </li>
                     {% endif %}
                     {% if page.2dcloud %}
@@ -50,6 +50,16 @@
                     {% if page.tictail %}
                     <li>
                         <a href='http://{{ page.tictail }}'>${{ page.price }} tictail</a>
+                    </li>
+                    {% endif %}
+                    {% if page.printedmatter %}
+                    <li>
+                        <a href='https://www.printedmatter.org/catalog/{{ page.printedmatter }}'>${{ page.price }} Printed Matter</a>
+                    </li>
+                    {% endif %}
+                    {% if page.publicationstudio %}
+                    <li>
+                        <a href='https://{{ page.publicationstudio }}'>${{ page.price }} Publication Studio</a>
                     </li>
                     {% endif %}
                 </ul>

@@ -92,6 +92,7 @@
         It was
     {% if article.pub == 'self-published' %}
         <a class='a2' href='{{ site.url }}/publisher/self-published'>self-published</a>
+    {% elsif page.pub == 'Gaze Books' %} published by <a class='a2' href='{{ site.url }}/role/publisher'>Blaise Larmee</a> as <a class='a2' href='{{ site.url }}/publisher/{{ page.pub | slugify }}'>{{ page.pub }}</a>
     {% else %}
         published by
         {% assign pubCount = article.pub | size %}
