@@ -15,6 +15,10 @@ $blue: #2a7ae2;
  * Basic styling
  */
 
+.a{% for article in site.posts %}{{ article.permalink }} {
+   background-image: url('../{{article.permalink}}.jpg');
+ }{% endfor %}
+
 body {
     font-family: $base-font-family;
     font-size: $base-font-size;
@@ -429,19 +433,31 @@ ul li:hover > ul {
   .flexbg {
   background-image: url('../12/grid.jpg');
   }
+  .a{% for article in site.posts %}{{ article.permalink }} {
+     background-image: url('../12/{{article.permalink}}.jpg');
+   }{% endfor %}
 }
 @media only screen and (min-width:582px) {
     .bg, .flexbg {
     background-image: url('../25/grid.jpg');
     }
+    .a{% for article in site.posts %}{{ article.permalink }} {
+       background-image: url('../25/{{article.permalink}}.jpg');
+     }{% endfor %}
 }
 @media only screen and (min-width:1000px) {
     .bg, .flexbg {
     background-image: url('../50/grid.jpg');
     }
+    .a{% for article in site.posts %}{{ article.permalink }} {
+       background-image: url('../50/{{article.permalink}}.jpg');
+     }{% endfor %}
 }
 @media only screen and (min-width:2400px) {
     .bg, .flexbg {
     background-image: url('../grid.jpg');
     }
+    .a{% for article in site.posts %}{{ article.permalink }} {
+       background-image: url('../{{article.permalink}}.jpg');
+     }{% endfor %}
 }
