@@ -1,36 +1,4 @@
-{% if article.bio %}
-<div>
-    <p>
-      {{article.bio}}
-    </p>
-</div>
-{% if article.url == '/' %}
-<div>
-    <p>
-      {% assign sum = 0 %}
-      {% for article in site.posts %}
-      {% assign sum = sum | plus: 1 %}
-      {% endfor %}
-      {% assign sum2 = 0 %}
-      {% for article in site.posts %}
-      {% assign sum2 = sum2 | plus: article.images %}
-      {% endfor %}
-      {% assign sum3 = 0 %}
-      {% for article in site.posts %}
-      {% if article.youtube %}
-      {% assign sum3 = sum3 | plus: 1 %}
-      {% endif %}
-      {% endfor %}
-      {% capture sum4 %}
-      {% for article in site.posts %}
-      {% include text-tag2-word-count.html %}
-      {% endfor %}
-      {% endcapture %}
-      This site contains {{ sum4 | number_of_words }} <a class='a2' href='{{site.url}}/all/words'>words</a>, {{ sum | plus: sum2 }} <a class='a2' href='{{site.url}}/all/images'>images</a>, and {{ sum3 }} <a class='a2' href='{{site.url}}/all/videos'>videos</a>.
-    </p>
-</div>
-{% endif %}
-{% elsif article.description %}
+{% if article.description %}
 <div>
     <p class='m1'>
         {{article.description}}
@@ -186,37 +154,4 @@
 
     </p>
 </div>
-{% elsif article.layout == 'all' %}
-{% assign sum = 0 %}
-{% for article in site.posts %}
-{% assign sum = sum | plus: 1 %}
-{% endfor %}
-{% assign sum2 = 0 %}
-{% for article in site.posts %}
-{% assign sum2 = sum2 | plus: article.images %}
-{% endfor %}
-{% assign sum3 = 0 %}
-{% for article in site.posts %}
-{% if article.youtube %}
-{% assign sum3 = sum3 | plus: 1 %}
-{% endif %}
-{% endfor %}
-{% capture sum4 %}
-{% for article in site.posts %}
-{% include text-tag2-word-count.html %}
-{% endfor %}
-{% endcapture %}
-{% if article.url == '/all/images/' %}
-<p class='m1'>
-Displaying {{ sum2 }} of {{ sum | plus: sum2 }} images.
-</p>
-{% elsif article.url == '/all/videos/' %}
-<p class='m1'>
-Displaying {{ sum3 }} of {{ sum3 }} videos.
-</p>
-{% elsif article.url == '/all/words/' %}
-<p class='m1'>
-Displaying {{ sum4 | number_of_words }} of {{ sum4 | number_of_words }} words.
-</p>
-{% endif %}
 {% endif %}

@@ -4,27 +4,6 @@
       {{article.bio}}
     </p>
 </div>
-{% if article.url == '/' %}
-<div>
-    <p>
-      {% assign sum = 0 %}
-      {% for article in site.posts %}
-      {% assign sum = sum | plus: 1 %}
-      {% endfor %}
-      {% assign sum2 = 0 %}
-      {% for article in site.posts %}
-      {% assign sum2 = sum2 | plus: article.images %}
-      {% endfor %}
-      {% assign sum3 = 0 %}
-      {% for article in site.posts %}
-      {% if article.youtube %}
-      {% assign sum3 = sum3 | plus: 1 %}
-      {% endif %}
-      {% endfor %}
-      This site contains {{ sum }} works, {{ sum2 | plus: sum1 }} <a class='a2' href='{{site.url}}/all/images'>images</a>, and {{ sum3 }} <a class='a2' href='{{site.url}}/all/videos'>videos</a>.
-    </p>
-</div>
-{% endif %}
 {% elsif article.description %}
 <div>article
     <p class='m1'>

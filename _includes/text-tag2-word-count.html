@@ -4,27 +4,6 @@
       {{article.bio}}
 
 
-{% if article.url == '/' %}
-
-
-      {% assign sum = 0 %}
-      {% for article in site.posts %}
-      {% assign sum = sum | plus: 1 %}
-      {% endfor %}
-      {% assign sum2 = 0 %}
-      {% for article in site.posts %}
-      {% assign sum2 = sum2 | plus: article.images %}
-      {% endfor %}
-      {% assign sum3 = 0 %}
-      {% for article in site.posts %}
-      {% if article.youtube %}
-      {% assign sum3 = sum3 | plus: 1 %}
-      {% endif %}
-      {% endfor %}
-      This site contains {{ sum }} works, {{ sum2 | plus: sum1 }} images, and {{ sum3 }} videos.
-
-
-{% endif %}
 {% elsif article.description %}
 
 
