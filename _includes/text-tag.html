@@ -1,12 +1,8 @@
-<div class='p1 p' style='position:relative;'>
+<div class='p' style='position:relative;'>
     <div class='x3 m2' style='padding: 0.33em 0;'>
-        <a href='../../' class='a2'>blaise<span class='hide'>larmee</span></a> / {% if page.layout == 'dir' %}{{ page.url | replace:'/','' | replace: 'index.html','' }}{% elsif page.url == '/shop/index.html' %}shop{% else %}<a href='../' class='a2'>{{ page.collection }}</a> / {{ page.url | split:'/' | last }}{% endif %}
+        {% if page.url == '/' %}index{% else %}<a href='../../' class='a2'>blaise<span class='hide'>larmee</span></a> / {% if page.layout == 'dir' %}{{ page.url | replace:'/','' | replace: 'index.html','' }}{% elsif page.url == '/all/products.html' %}{% else %}<a href='../' class='a2'>{{ page.collection }}</a> / {{ page.url | split:'/' | last }}{% endif %}{% endif %}
         <nav class='p1 simpleCart_shelfItem' style='position: absolute; top: 0; right: 0;'>
             <ul>
-                {% if page.url == '/' %}
-                <li><a href='mailto:blaiselarmee@gmail.com'>Contact</a>
-                </li>
-                {% endif %}
                 {% if page.buy %}
                 <li><a>Buy</a>
                     <ul>
@@ -110,6 +106,10 @@
                         </li>
                     </ul>
                 </li>
+                {% if page.url == '/' %}
+                <li><a href='mailto:blaiselarmee@gmail.com'>Contact</a>
+                </li>
+                {% endif %}
             </ul>
         </nav>
     </div>

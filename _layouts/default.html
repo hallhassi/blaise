@@ -7,8 +7,12 @@
 
 {% include navigation.html %}
 {% include image.html %}
+{% if page.url == '/' %}
+{% include text-tag.html %}
+{% else %}
 {% include text.html %}
-<div class='clearfix'>
+{% endif %}
+<div class='clearfix p'>
 {% include images.html %}
 </div>
 {% if page.youtube %}
@@ -16,14 +20,20 @@
 {% endif %}
 {% if page.bio %}
 {% for article in site.posts limit:9 %}
+  {% unless article.archive %}
     {% include feed1.html %}
+  {% endunless %}
 {% endfor %}
 {% for article in site.posts offset:9 %}
+  {% unless article.archive %}
     {% include feed2.html %}
+  {% endunless %}
 {% endfor %}
 {% else %}
 {% for article in site.posts %}
+  {% unless article.archive %}
     {% include feed2.html %}
+  {% endunless %}
 {% endfor %}
 {% endif %}
 

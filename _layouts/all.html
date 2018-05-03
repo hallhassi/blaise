@@ -3,10 +3,19 @@
 
 {% include head.html %}
 
-<body class='bg bg-bottom'>
+<body class='bg bg-bottom' {% if page.url == '/all/products/' %}style='background-size: 50%;'{% endif %}>
+
 {% include navigation.html %}
 {% include text-tag.html %}
-{% if page.url == '/all/images/' %}
+{% if page.url == '/all/products/' %}
+<div class='clearfix'>
+</div>
+{% for article in site.posts %}
+{% if article.buy %}
+    {% include shop-feed.html %}
+{% endif %}
+{% endfor %}
+{% elsif page.url == '/all/images/' %}
 {% for page in site.posts %}
 <div class='clearfix'>
 {% include images.html %}

@@ -15,7 +15,7 @@ $blue: #2a7ae2;
  * Basic styling
  */
 
-.a{% for article in site.posts %}{{ article.permalink }} {
+{% for article in site.posts %}.a{{ article.permalink }} {
    background-image: url('../{{article.permalink}}.jpg');
  }{% endfor %}
 
@@ -177,13 +177,6 @@ a {
     z-index: 1;
     padding: $smallest-font-size;
 }
-.x1b {
-    position: fixed;
-    right: 0;
-    top: 100px;
-    z-index: 1;
-    padding: $smallest-font-size;
-}
 .x2 {
     stroke:$black;
     stroke-width: 2;
@@ -195,9 +188,18 @@ a {
     width: 66%;
 }
 .x4 {
-    position: absolute;
-    right: .5em;
-    text-align: right;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 1;
+}
+.x5 {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 1;
 }
 .hide { display: none; }
 .hide2 { display: none; }
@@ -219,9 +221,6 @@ a {
 }
 .m3 {
     margin-bottom: -.15em;
-}
-.p0 {
-    padding-top: 0;
 }
 .p {
     padding: 0 $smallest-font-size;
@@ -402,17 +401,6 @@ ul li:hover > ul {
  * Media
  */
 @media only screen and (min-width:400px) {
-    body .flex {
-        width: 33.3333%;
-        float: left;
-    }
-    .flexbg {
-        background-size: 33.3333%;
-    }
-    .p0 {
-        padding-top: 4em;
-        padding-top: 14vw;
-    }
     .hide {
         display:inline;
     }
@@ -429,23 +417,15 @@ ul li:hover > ul {
     background-image: url('../12/grid.jpg');
     }
 }
-@media only screen and (min-width:400px) {
+@media only screen and (min-width:350px) {
   .flexbg {
-  background-image: url('../12/grid.jpg');
+  background-image: url('../25/grid.jpg');
   }
   .a{% for article in site.posts %}{{ article.permalink }} {
-     background-image: url('../12/{{article.permalink}}.jpg');
+     background-image: url('../25/{{article.permalink}}.jpg');
    }{% endfor %}
 }
-@media only screen and (min-width:582px) {
-    .bg, .flexbg {
-    background-image: url('../25/grid.jpg');
-    }
-    .a{% for article in site.posts %}{{ article.permalink }} {
-       background-image: url('../25/{{article.permalink}}.jpg');
-     }{% endfor %}
-}
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:700px) {
     .bg, .flexbg {
     background-image: url('../50/grid.jpg');
     }
@@ -453,11 +433,11 @@ ul li:hover > ul {
        background-image: url('../50/{{article.permalink}}.jpg');
      }{% endfor %}
 }
-@media only screen and (min-width:2400px) {
+@media only screen and (min-width:1400px) {
     .bg, .flexbg {
     background-image: url('../grid.jpg');
     }
-    .a{% for article in site.posts %}{{ article.permalink }} {
+    {% for article in site.posts %}.a{{ article.permalink }} {
        background-image: url('../{{article.permalink}}.jpg');
      }{% endfor %}
 }
