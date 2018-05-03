@@ -1,6 +1,6 @@
 <div class='p' style='position:relative;'>
     <div class='x3 m2' style='padding: 0.33em 0;'>
-        {% if page.url == '/' %}index{% else %}<a href='../../' class='a2'>blaise<span class='hide'>larmee</span></a> / {% if page.layout == 'dir' %}{{ page.url | replace:'/','' | replace: 'index.html','' }}{% elsif page.url == '/all/products.html' %}{% else %}<a href='../' class='a2'>{{ page.collection }}</a> / {{ page.url | split:'/' | last }}{% endif %}{% endif %}
+        {% if page.url == '/' %}<span class='hide6'><a href='../../' class='a2'>blaise<span class='hide7'>larmee</span></a> / <span class='show'><br/></span></span><a href='/all/' class='a2'>all</a> / <span class='show2'><br/></span>index{% else %}<a href='../../' class='a2'>blaise<span class='hide5'>larmee</span></a> / {% if page.layout == 'dir' %}{{ page.url | replace:'/','' | replace: 'index.html','' }}{% elsif page.url == '/all/products.html' %}{% else %}<a href='../' class='a2'>{{ page.collection }}</a> / {{ page.url | split:'/' | last }}{% endif %}{% endif %}
         <nav class='p1 simpleCart_shelfItem' style='position: absolute; top: 0; right: 0;'>
             <ul>
                 {% if page.buy %}

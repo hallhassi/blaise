@@ -1,10 +1,18 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
+@font-face {
+  font-family: 'papa';
+  src: url('{{ site.url }}/fonts/papa.eot'); /* IE9 Compat Modes */
+  src: url('{{ site.url }}/fonts/papa.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('{{ site.url }}/fonts/papa.woff2') format('woff2'), /* Super Modern Browsers */
+       url('{{ site.url }}/fonts/papa.woff') format('woff'), /* Pretty Modern Browsers */
+       url('{{ site.url }}/fonts/papa.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('{{ site.url }}/fonts/papa.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 // Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size: 1.5em;
+$base-font-family: papa;
+$base-font-size: 1.75em;
 $smallest-font-size: $base-font-size * .333333;
 $smallestest-font-size: $base-font-size * .066667;
 $large-font-size: $base-font-size * 2;
@@ -22,7 +30,7 @@ $blue: #2a7ae2;
 body {
     font-family: $base-font-family;
     font-size: $base-font-size;
-    line-height: $base-font-size;
+    line-height: 1.25;
     font-weight: 300;
     color: $black;
     -webkit-text-size-adjust: 100%;
@@ -37,7 +45,6 @@ body {
     background-image: url('../25/grid.jpg');
     background-repeat: repeat;
 }
-body .noflex { width: 33.3333%; float: left; }
 .bg {
     background-image: url('../06/grid.jpg');
     background-size: 33.33333%;
@@ -48,9 +55,6 @@ body .noflex { width: 33.3333%; float: left; }
     background-position-x: 100%;
     background-position-y: 100%;
   }
-/**
- * Columns
- */
 
 article {
    float: left;
@@ -66,6 +70,7 @@ article {
    float: left;
    width: 50%;
 }
+
 
 /**
  * Reset some basic elements
@@ -201,11 +206,15 @@ a {
   margin-top: -25px;
   z-index: 1;
 }
+.show { display: inline; }
+.show2 { display: inline; }
 .hide { display: none; }
 .hide2 { display: none; }
 .hide3 { display: none; }
 .hide4 { display: none; }
 .hide5 { display: none; }
+.hide6 { display: none; }
+.hide7 { display: none; }
 
 /**
  * Margins
@@ -285,10 +294,6 @@ a {
     font-size: $smallest-font-size;
     vertical-align: 22%;
     margin-left: -.5em;
-}
-.quote {
-    position: relative;
-    left: -.25em;
 }
 
 /**
@@ -400,6 +405,10 @@ ul li:hover > ul {
 /**
  * Media
  */
+
+@media only screen and (min-width:334px) { .show2 { display: none; } .hide6 { display: inline; } }
+@media only screen and (min-width:374px) { .hide7 { display: inline; } }
+
 @media only screen and (min-width:400px) {
     .hide {
         display:inline;
@@ -408,7 +417,7 @@ ul li:hover > ul {
       width: 450px;
     }
 }
-@media only screen and (min-width: 500px) { .hide5 { display: inline; } }
+@media only screen and (min-width: 500px) { .hide5 { display: inline; } .show { display: none; } }
 @media only screen and (min-width: 700px) { .hide4 { display: inline; } }
 @media only screen and (min-width: 900px) { .hide3 { display: inline; } }
 @media only screen and (min-width: 1200px) { .hide2 { display: inline; } }
