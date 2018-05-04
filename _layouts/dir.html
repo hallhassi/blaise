@@ -10,7 +10,7 @@
   {% assign sorted = site.all | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -21,7 +21,7 @@
   {% assign sorted = site.ink | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -32,7 +32,7 @@
   {% assign sorted = site.binding | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -44,7 +44,7 @@
 <div class='left taglist'>
 {% for item in sorted limit:110%}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title }}
     </a>
   </p>
@@ -53,7 +53,7 @@
 <div class='left'>
 {% for item in sorted offset:110%}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title }}
     </a>
   </p>
@@ -65,7 +65,7 @@
   {% assign sorted = site.place | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title }}
     </a>
   </p>
@@ -76,7 +76,7 @@
   {% assign sorted = site.print | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -87,7 +87,7 @@
   {% assign sorted = site.publisher | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title }}
     </a>
   </p>
@@ -99,7 +99,7 @@
   {% assign sorted = site.role | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -110,7 +110,7 @@
   {% assign sorted = site.size | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -121,7 +121,7 @@
   {% assign sorted = site.format | sort:"title" %}
   {% for item in sorted %}
   <p>
-    <a class='a2' href="{{ item.url }}">
+    / <a class='a2' href="{{ item.url }}">
       {{ item.title | downcase }}
     </a>
   </p>
@@ -132,7 +132,7 @@
 {% assign sorted = site.year | sort:"title" %}
 {% for item in sorted %}
 <p>
-  <a class='a2' href="{{ item.url }}">
+  / <a class='a2' href="{{ item.url }}">
     {{ item.title | upcase }}
   </a>
 </p>

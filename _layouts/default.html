@@ -12,9 +12,11 @@
 {% else %}
 {% include text.html %}
 {% endif %}
+{% if page.images %}
 <div class='clearfix p'>
 {% include images.html %}
 </div>
+{% endif %}
 {% if page.youtube %}
 {% include youtube.html %}
 {% endif %}

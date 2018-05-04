@@ -42,19 +42,9 @@ body {
 }
 .flexbg {
     background-size: 100%;
-    background-image: url('../25/grid.jpg');
+    background-image: url('../3/grid.jpg');
     background-repeat: repeat;
 }
-.bg {
-    background-image: url('../06/grid.jpg');
-    background-size: 33.33333%;
-    background-repeat: repeat;
-  }
-.bg-bottom {
-    background-position: 100% 100%;
-    background-position-x: 100%;
-    background-position-y: 100%;
-  }
 
 article {
    float: left;
@@ -421,29 +411,24 @@ ul li:hover > ul {
 @media only screen and (min-width: 700px) { .hide4 { display: inline; } }
 @media only screen and (min-width: 900px) { .hide3 { display: inline; } }
 @media only screen and (min-width: 1200px) { .hide2 { display: inline; } }
-@media only screen and (min-width:288px) {
-    .bg {
-    background-image: url('../12/grid.jpg');
-    }
-}
 @media only screen and (min-width:350px) {
   .flexbg {
-  background-image: url('../25/grid.jpg');
+  background-image: url('../3/grid.jpg');
   }
   .a{% for article in site.posts %}{{ article.permalink }} {
-     background-image: url('../25/{{article.permalink}}.jpg');
+     background-image: url('../3/{{article.permalink}}.jpg');
    }{% endfor %}
 }
 @media only screen and (min-width:700px) {
-    .bg, .flexbg {
-    background-image: url('../50/grid.jpg');
+    .flexbg {
+    background-image: url('../4/grid.jpg');
     }
     .a{% for article in site.posts %}{{ article.permalink }} {
-       background-image: url('../50/{{article.permalink}}.jpg');
+       background-image: url('../4/{{article.permalink}}.jpg');
      }{% endfor %}
 }
 @media only screen and (min-width:1400px) {
-    .bg, .flexbg {
+    .flexbg {
     background-image: url('../grid.jpg');
     }
     {% for article in site.posts %}.a{{ article.permalink }} {

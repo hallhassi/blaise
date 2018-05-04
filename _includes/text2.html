@@ -4,6 +4,13 @@
       {{page.bio}}
     </p>
 </div>
+{% if page.bio2 %}
+<div>
+    <p>
+      {{page.bio2}}
+    </p>
+</div>
+{% endif %}
 {% if page.url == '/' %}
 <div>
     <p>
@@ -50,7 +57,7 @@
 {% elsif page.format == 'event' %}
 <div>
     <p class='m1'>
-        {{page.title}} was an <a class='a2' href='{{ site.url }}/format/{{page.format}}'>{{page.format}}</a> organized by {% if page.publisher %} <a class='a2' href='{{ site.url }}/publisher/{{ page.publisher }}'>{{ page.publisher }}</a>{% endif %}{% if page.editor %} and <a class='a2' href='{{ site.url }}/people/{{ page.editor | slugify }}'>{{ page.editor }}</a>{% endif %} featuring {% if page.concept %}a performance by <a class='a2' href='{{ site.url }}/people/{{page.dance}}'>{{page.dance}}</a> (dance and choreography) and <a class='a2' href='{{ site.url }}/people/{{page.concept}}'>{{page.concept}}</a> (concept), as well as performances by {%endif%}{% for author in page.author %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %} at {% if page.place2 %}{{page.place2}}{%else%}<a class='a2' href='{{ site.url }}/place/{{ page.place | slugify }}'>{{ page.place }}</a>{% endif %} on {{ page.pubdate0 }}, <a class='a2' href='{{ site.url }}/year/{{ page.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ page.pubdate }}</a>.
+        {{page.title}} was an <a class='a2' href='{{ site.url }}/format/{{page.format}}'>{{page.format}}</a> organized by {% if page.publisher %} <a class='a2' href='{{ site.url }}/publisher/{{ page.publisher }}'>{{ page.publisher }}</a>{% endif %}{% if page.editor %} and <a class='a2' href='{{ site.url }}/people/{{ page.editor | slugify }}'>{{ page.editor }}</a>{% endif %} featuring Blaise Larmee{% if page.concept %} and{%else%},{%endif%} {% for author in page.author %}{% if forloop.first %}<a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% elsif forloop.last %} and <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% else %}, <a class='a2' href='{{ site.url }}/people/{{ author | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify }}'>{{ author }}</a>{% endif %}{% endfor %} at {% if page.place2 %}{{page.place2}}{%else%}<a class='a2' href='{{ site.url }}/place/{{ page.place | slugify }}'>{{ page.place }}</a>{% endif %} on {{ page.pubdate0 }}, <a class='a2' href='{{ site.url }}/year/{{ page.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ page.pubdate }}</a>.
     </p>
 </div>
 {% elsif page.format == 'exhibition' %}
