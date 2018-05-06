@@ -39,6 +39,9 @@ body {
     background-position: 0% 0%;
     background-position-x: 0%;
     background-position-y: 0%;
+    background-size: 11.11%;
+    background-image: url('../1/grid.jpg');
+    background-repeat: repeat;
 }
 .flexbg {
     background-size: 100%;
@@ -73,6 +76,8 @@ article {
 ul a {
   background-color: white;
 }
+
+
 /**
  * Reset some basic elements
  */
@@ -424,24 +429,15 @@ ul li:hover > ul {
 @media only screen and (min-width:350px) {
   .flexbg {
   background-image: url('../3/grid.jpg');
-  }
-  .a{% for article in site.posts %}{{ article.permalink }} {
-     background-image: url('../3/{{article.permalink}}.jpg');
-   }{% endfor %}
+    }
 }
 @media only screen and (min-width:700px) {
     .flexbg {
     background-image: url('../4/grid.jpg');
     }
-    .a{% for article in site.posts %}{{ article.permalink }} {
-       background-image: url('../4/{{article.permalink}}.jpg');
-     }{% endfor %}
 }
 @media only screen and (min-width:1400px) {
     .flexbg {
     background-image: url('../grid.jpg');
     }
-    {% for article in site.posts %}.a{{ article.permalink }} {
-       background-image: url('../{{article.permalink}}.jpg');
-     }{% endfor %}
 }
