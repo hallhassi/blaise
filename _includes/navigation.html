@@ -1,3 +1,25 @@
+{% if page.previous.url or page.next.url %}
+<script>
+document.addEventListener("keyup",function(e){
+   var key = e.which||e.keyCode;
+   switch(key){
+      //left arrow
+      case 37:
+         document.getElementById("next").click();
+      break;
+      //right arrow
+      case 39:
+         document.getElementById("previous").click();
+      break;
+      //escape
+      case 27:
+         document.getElementById("escape").click();
+      break;
+   }
+});
+</script>
+{% endif %}
+
 {% if page.url == '/people/index.html' or page.url == '/all/products.html' or page.collection == 'all' %}
 <a class='x1' href='#top'>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -7,7 +29,7 @@
 </a>
 {% elsif page.bio or page.layout == 'dir' %}
 {% else %}
-<a class='x' href='../'>
+<a class='x' id='escape' href='../'>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
     <line class="x2" stroke-miterlimit="10" x1="30" y1="1" x2="1" y2="30"/>
@@ -21,7 +43,7 @@
     </svg>
 </a>
 {% if page.previous.url %}
-<a class='x4' href='{{page.previous.url}}'>
+<a class='x4' id='previous' href='{{page.previous.url}}'>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
     <polyline class="x2" stroke-miterlimit="10" points="1,1 15,15 15,15 1,30"/>
@@ -29,7 +51,7 @@
 </a>
 {% endif %}
 {% if page.next.url %}
-<a class='x5' href='{{page.next.url}}'>
+<a class='x5' id='next' href='{{page.next.url}}'>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
     <polyline class="x2" stroke-miterlimit="10" points="30,1 15,15 15,15 30,30"/>
