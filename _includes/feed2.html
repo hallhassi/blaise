@@ -1,7 +1,7 @@
 <article>
     <a href='../{{article.permalink}}'>
         <div class='div pb100'>
-          <picture>
+          <picture class='noselect'>
             <source media='(min-width: 2304px)' data-srcset='{{ site.url }}/{{article.permalink}}.jpg'>
             <source media='(min-width: 1152px)' data-srcset='{{ site.url }}/4/{{article.permalink}}.jpg'>
             <source media='(min-width: 576px)' data-srcset='{{ site.url }}/3/{{article.permalink}}.jpg'>
@@ -9,7 +9,7 @@
             <img data-src='{{ site.url }}/1/{{article.permalink}}.jpg' class='img alt' alt='{{article.title}}'>
           </picture>
           <noscript>
-            <picture>
+            <picture class='noselect'>
               <source media='(min-width: 2304px)' srcset='{{ site.url }}/{{article.permalink}}.jpg'>
               <source media='(min-width: 1152px)' srcset='{{ site.url }}/4/{{article.permalink}}.jpg'>
               <source media='(min-width: 576px)' srcset='{{ site.url }}/3/{{article.permalink}}.jpg'>
