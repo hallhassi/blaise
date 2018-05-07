@@ -1,22 +1,3 @@
-{% if article.layout == 'tag' or article.layout == 'all' %}
-
-<div class='w1'>
-    <div class='p p05'>
-        <div class='x3'>
-            <a href='../../' class='a2'>blaise<span class='hide'>larmee</span></a> / <a href='../' class='a2'>{{ article.collection }}</a> / {{ article.url | split:'/' | last }}
-        </div>
-    </div>
-</div>
-{% elsif article.layout == 'dir' %}
-<div class='w1'>
-    <div class='p p05'>
-        <div class='x3'>
-            <a href='../' class='a2'>blaise<span class='hide'>larmee</span></a> / {{ article.url | replace:'/','' | replace: 'index.html','' }}
-        </div>
-    </div>
-</div>
-{% endif %}
-
 <div class='article2'>
   <div class='p'>
     <nav class='noselect p1 {% if article.layout == 'tag' or article.layout == 'all' or article.layout == 'dir' or article.url == '/' %}m2{% else %}{% endif %} simpleCart_shelfItem'>

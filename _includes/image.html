@@ -1,11 +1,6 @@
-{% if page.bio %}
-{% elsif page.statement %}
-{% else %}
-<div style='height:100vw;' class='noselect flex' id='top'>
-  <picture>
-    <source data-srcset='{{ site.url }}/1/{{page.permalink}}.jpg, {{ site.url }}/2/{{page.permalink}}.jpg 2x, {{ site.url }}/3/{{page.permalink}}.jpg 3x, {{ site.url }}/4/{{page.permalink}}.jpg 4x' media='(max-width: 450px)'>
-    <source data-srcset='{{ site.url }}/2/{{page.permalink}}.jpg, {{ site.url }}/3/{{page.permalink}}.jpg 1.5x, {{ site.url }}/4/{{page.permalink}}.jpg 2x, {{ site.url }}/{{page.permalink}}.jpg 4x'>
-    <img data-src='{{ site.url }}/1/{{page.permalink}}.jpg' class='img alt' alt='{{page.title}}'>
-  </picture>
+{% unless page.bio %}
+<div class='noselect' id='top'>
+    <div class='cover a{{page.permalink}}'>
+    </div>
 </div>
-{% endif %}
+{% endunless %}
