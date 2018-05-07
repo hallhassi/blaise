@@ -3,7 +3,7 @@
 
 {% include head.html %}
 
-<body class='bg bg-bottom' {% if page.url == '/all/products/' %}style='background-size: 50%;'{% endif %}>
+<body class='{% if page.url == '/all/products/' %}shop{% else %}bg{% endif %}'>
 
 {% include navigation.html %}
 {% include text-tag.html %}
@@ -17,7 +17,7 @@
 {% endfor %}
 {% elsif page.url == '/all/images/' %}
 {% for page in site.posts %}
-<div class='clearfix'>
+<div class='m1'>
 {% include images.html %}
 </div>
 {% endfor %}
