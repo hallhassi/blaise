@@ -460,7 +460,7 @@ ul li:hover > ul {
   @include d1(200px){background-image: url('../2/{{ article.permalink }}.jpg');}
   @include d1(400px){background-image: url('../3/{{ article.permalink }}.jpg');}
   @include d1(800px){background-image: url('../4/{{ article.permalink }}.jpg');}
-  @include d1(1600px){background-image: url('..{{ article.permalink }}.jpg');}
+  @include d1(1600px){background-image: url('../{{ article.permalink }}.jpg');}
   @include d2(200px){background-image: url('../3/{{ article.permalink }}.jpg');}
   @include d2(400px){background-image: url('../4/{{ article.permalink }}.jpg');}
   @include d2(800px){background-image: url('../{{ article.permalink }}.jpg');}
