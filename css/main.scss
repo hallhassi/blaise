@@ -203,6 +203,7 @@ a {
 .hide5 { display: none; }
 .hide6 { display: none; }
 .hide7 { display: none; }
+.hide8 { display: none; }
 
 /**
  * Margins
@@ -436,6 +437,22 @@ ul li:hover > ul {
   @include media('>=200px', 'retina4x') {background-image: url('../{{ article.permalink }}.jpg');}
 }
 {% endfor %}
+{% for article in site.posts %}
+.shop{{ article.permalink }}{
+  background-size: 100%;
+  background-image: url('../1/{{ article.permalink }}.jpg');
+  @include media('>=400px') {background-image: url('../2/{{ article.permalink }}.jpg');}
+  @include media('>=800px') {background-image: url('../3/{{ article.permalink }}.jpg');}
+  @include media('>=1600px') {background-image: url('../4/{{ article.permalink }}.jpg');}
+  @include media('>=3600px') {background-image: url('../{{ article.permalink }}.jpg');}
+  @include media('>=400px', 'retina2x') {background-image: url('../3/{{ article.permalink }}.jpg');}
+  @include media('>=800px', 'retina2x') {background-image: url('../4/{{ article.permalink }}.jpg');}
+  @include media('>=1600px', 'retina2x') {background-image: url('../{{ article.permalink }}.jpg');}
+  @include media('>=200px', 'retina4x') {background-image: url('../3/{{ article.permalink }}.jpg');}
+  @include media('>=400px', 'retina4x') {background-image: url('../4/{{ article.permalink }}.jpg');}
+  @include media('>=800px', 'retina4x') {background-image: url('../{{ article.permalink }}.jpg');}
+}
+{% endfor %}
 
 .bg{
   background-size: 11.11%;
@@ -468,8 +485,10 @@ ul li:hover > ul {
 @media only screen and (min-width:400px) {
   .hide { display: inline; }
   .taglist { width: 450px; }
-  .hide5 { display: inline; }
   .show { display: none; }
+}
+@media only screen and (min-width: 550px) {
+  .hide5 { display: inline; }
 }
 @media only screen and (min-width: 700px) {
   .hide4 { display: inline; }
