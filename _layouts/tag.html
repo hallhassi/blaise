@@ -8,6 +8,8 @@
 {% include navigation.html %}
 {% include text-tag.html %}
 
+<div class='pvh'>
+
 {% for article in site.posts %}
 
     {% assign p1 = page.url | split:'/' | last %}
@@ -72,6 +74,10 @@
     {% endif %}
 
 {% endfor %}
+
+</div>
+
+{% include footer.html %}
 
 {% assign alltags = '' | split: '' %}
 {% for page in menuItems %}

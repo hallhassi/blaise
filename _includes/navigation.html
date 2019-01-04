@@ -21,19 +21,12 @@ document.addEventListener("keyup",function(e){
 {% endif %}
 {% if page.url == '/all/products/'  %}
 {% elsif page.url == '/people/index.html' or page.collection == 'all' %}
-<a class='x1' href='#top'>
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
-    <polyline class="x2" stroke-miterlimit="10" points="30,30 15,15 15,15 1,30 "/>
-    </svg>
-</a>
 {% elsif page.bio or page.layout == 'dir' %}
 {% else %}
-<a class='x' id='escape' href='../'>
+<a class='x' id='escape' href='#bottom'>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
-    <line class="x2" stroke-miterlimit="10" x1="30" y1="1" x2="1" y2="30"/>
-    <line class="x2" stroke-miterlimit="10" x1="1" y1="1" x2="30" y2="30"/>
+         <polyline class="x2" stroke-miterlimit="10" points="0,0 15,15 15,15 30,0 "/>
     </svg>
 </a>
 <a class='x1' href='#top'>

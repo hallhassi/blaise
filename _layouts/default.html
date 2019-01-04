@@ -3,39 +3,38 @@
 
 {% include head.html %}
 
-<body class='{% if page.url == '/' %}bg{% else %}flexbg{% endif %}'>
+<body class='bg'>
 
 {% include navigation.html %}
 {% include image.html %}
 {% if page.url == '/' %}
-{% include text-tag.html %}
 {% else %}
-{% include text.html %}
+<div class='pvh'>
+  {% include text.html %}
+</div>
 {% endif %}
 {% if page.images %}
-{% include images.html %}
+<div class='pvh'>
+  {% include images.html %}
+</div>
 {% endif %}
 {% if page.youtube %}
-{% include youtube.html %}
+<div class='pvh'>
+  {% include youtube.html %}
+</div>
 {% endif %}
-{% if page.bio %}
-{% for article in site.posts limit:9 %}
-  {% unless article.archive %}
-    {% include feed1.html %}
-  {% endunless %}
-{% endfor %}
-{% for article in site.posts offset:9 %}
-  {% unless article.archive %}
-    {% include feed2.html %}
-  {% endunless %}
-{% endfor %}
-{% else %}
+<div class='pp pvh' id='bottom'>
+  {{site.description}}
+</div>
+<div class='pvh'>
 {% for article in site.posts %}
   {% unless article.archive %}
     {% include feed2.html %}
   {% endunless %}
 {% endfor %}
-{% endif %}
+</div>
+
+{% include footer.html %}
 
 {% include lazy.html %}{% include clipboard.html %}
 

@@ -1,5 +1,4 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @font-face {
   font-family: 'papa';
@@ -10,7 +9,7 @@
        url('{{ site.url }}/fonts/papa.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('{{ site.url }}/fonts/papa.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
-// Our variables
+
 $base-font-family: papa;
 $base-font-size: 1.75em;
 $smallest-font-size: $base-font-size * .333333;
@@ -18,10 +17,6 @@ $smallestest-font-size: $base-font-size * .066667;
 $large-font-size: $base-font-size * 2;
 $black: #111;
 $blue: #2a7ae2;
-
-/**
- * Basic styling
- */
 
 body {
   font-family: $base-font-family;
@@ -35,7 +30,33 @@ article {
    width: 33.3333%;
 }
 
+p {
+    margin: 0;
+    padding-top: 1em;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul a {
+  background-color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
 .article {
+   float: left;
+   width: 50%;
+}
+
+.right {
+   float: right;
+}
+
+.left {
    float: left;
    width: 50%;
 }
@@ -54,40 +75,6 @@ article {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-}
-ul a {
-  background-color: white;
-}
-
-
-/**
- * Reset some basic elements
- */
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote,
-pre,
-hr,
-dl,
-dd,
-ol,
-ul,
-figure {
-    margin: 0;
-    padding: 0;
-}
-ul {
-    list-style-type: none;
-}
-a {
-    text-decoration: none;
-    cursor: pointer;
 }
 .z1 {
     cursor: zoom-in;
@@ -152,49 +139,6 @@ a {
       border-left: 1px solid $black;
 }
 
-/**
- * Navigation
- */
-
-.x {
-    position: fixed;
-    right: 0;
-    top: 1.5em;
-    z-index: 1;
-    padding: $smallest-font-size;
-}
-.x1 {
-    position: fixed;
-    right: 0;
-    top: 4em;
-    z-index: 1;
-    padding: $smallest-font-size;
-}
-.x2 {
-    stroke:$black;
-    stroke-width: 2;
-    fill: none;
-    stroke-linecap:'round';
-    stroke-linejoin:'round';
-}
-.x3 {
-    width: 66%;
-    padding: 0.33em 0;
-}
-.x4 {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  margin-top: -25px;
-  z-index: 1;
-}
-.x5 {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  margin-top: -25px;
-  z-index: 1;
-}
 .show { display: inline; }
 .show2 { display: inline; }
 .hide { display: none; }
@@ -222,8 +166,12 @@ a {
 }
 .p {
     padding: 0 $smallest-font-size;
-    max-width:900px;
-    margin: 1.75em auto 0 auto;
+    max-width:100vh;
+    margin: 0 auto;
+    position:relative;
+}
+.pp {
+    padding: 0 1em;
     position:relative;
 }
 .p05 {
@@ -395,6 +343,65 @@ ul li:hover > ul {
  */
 @import 'media';
 
+.pvh {
+  padding-top: 25vh;
+  @include media('portrait') {padding-top: 25vw;}
+}
+.pvb {
+  padding-bottom: 25vh;
+  @include media('portrait') {padding-bottom: 25vw;}
+}
+.vw {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100vh;
+}
+
+.w {
+  margin-left: auto;
+  margin-right: auto;
+  height:50vh;
+  z-index: 1;
+}
+.x {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 1;
+}
+.x1 {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1;
+}
+.x2 {
+    stroke:$black;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap:'round';
+    stroke-linejoin:'round';
+}
+.x3 {
+    width: 66%;
+}
+.x4 {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.x5 {
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .shop{
   background-size: 50%;
   background-position-y: 100%;
@@ -495,4 +502,28 @@ ul li:hover > ul {
 }
 @media only screen and (min-width: 950px) {
   .hide3 { display: inline; }
+}
+
+
+/**
+ * Reset some basic elements
+ */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+    margin: 0;
+    padding: 0;
 }
