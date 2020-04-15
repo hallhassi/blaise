@@ -1,4 +1,4 @@
-title: Blaise Larmee
+title: blaiselarmee@gmail.com
 email: blaiselarmee@gmail.com
 description: Blaise Larmee was born to Susan Isono and Kevin Larmee.
 url: "https://blaiselarmee.com"
@@ -6,6 +6,10 @@ sass:
   style: compact # possible values: nested expanded compact compressed
   sass_dir: _sass
 collections:
+  blaiselarmee:
+    output: true
+    permalink: /:collection/:path/
+    collections_dir: /:name
   all:
     output: true
     permalink: /:collection/:path/

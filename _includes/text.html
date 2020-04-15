@@ -17,8 +17,9 @@
 </div>
 {% endif %}
 
-<div class='p'>
-    <nav class='noselect p1 {% if page.layout == 'tag' or page.layout == 'all' or page.layout == 'dir' or page.url == '/' %}m2{% else %}{% endif %} simpleCart_shelfItem'>
+<div class='grid1'>
+  <div class='rd'>
+    <nav class='noselect p1 {% if page.layout == 'tag' or page.layout == 'all' or page.layout == 'dir' or page.url == '/' %}m2{% else %}{% endif %} simpleCart_shelfItem' >
         <ul>
             {% if page.url == '/' %}
             <li><a href='mailto:blaiselarmee@gmail.com'>Contact</a>
@@ -130,4 +131,5 @@
         </ul>
     </nav>
     {% include text2.html %}
+  </div>
 </div>

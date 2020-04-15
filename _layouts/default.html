@@ -3,38 +3,24 @@
 
 {% include head.html %}
 
-<body class='bg'>
+<body class='bg1'>
 
-{% include navigation.html %}
-{% include image.html %}
 {% if page.url == '/' %}
 {% else %}
-<div class='pvh'>
-  {% include text.html %}
-</div>
+{% include text.html %}
 {% endif %}
-{% if page.images %}
-<div class='pvh'>
+{% if page.images2 %}
+<div class='grid2'>
+  {% include images2.html %}
+</div>
+{% elsif page.images %}
+<div class='li' {% if page.permalink == 'sketchbook-1' %}style='background-color: #b2b2b2;'{% endif %}>
   {% include images.html %}
 </div>
 {% endif %}
 {% if page.youtube %}
-<div class='pvh'>
-  {% include youtube.html %}
-</div>
+{% include youtube.html %}
 {% endif %}
-<div class='pp pvh' id='bottom'>
-  {{site.description}}
-</div>
-<div class='pvh'>
-{% for article in site.posts %}
-  {% unless article.archive %}
-    {% include feed2.html %}
-  {% endunless %}
-{% endfor %}
-</div>
-
-{% include footer.html %}
 
 {% include lazy.html %}{% include clipboard.html %}
 

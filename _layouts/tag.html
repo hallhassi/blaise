@@ -8,7 +8,7 @@
 {% include navigation.html %}
 {% include text-tag.html %}
 
-<div class='pvh'>
+<div class='grid1' style='grid-column: 1 /4;'>
 
 {% for article in site.posts %}
 
@@ -76,8 +76,6 @@
 {% endfor %}
 
 </div>
-
-{% include footer.html %}
 
 {% assign alltags = '' | split: '' %}
 {% for page in menuItems %}

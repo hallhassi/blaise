@@ -1,5 +1,6 @@
 ---
 ---
+@import 'media';
 @font-face {
   font-family: 'papa';
   src: url('{{ site.url }}/fonts/papa.eot'); /* IE9 Compat Modes */
@@ -13,6 +14,8 @@
 $base-font-family: papa;
 $base-font-size: 1.75em;
 $smallest-font-size: $base-font-size * .333333;
+$one-minus-smallest-font-size: 1 - $smallest-font-size;
+$one-plus-one-minus-smallest-font-size: 1 + $one-minus-smallest-font-size;
 $smallestest-font-size: $base-font-size * .066667;
 $large-font-size: $base-font-size * 2;
 $black: #111;
@@ -28,12 +31,13 @@ body {
 article {
    float: left;
    width: 33.3333%;
+   @include media('portrait') {width: 100%;}
 }
 
 p {
-    margin: 0;
-    padding-top: 1em;
+    margin: 1em;
 }
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -54,11 +58,6 @@ ul {
 
 .right {
    float: right;
-}
-
-.left {
-   float: left;
-   width: 50%;
 }
 
 .article2 {
@@ -165,10 +164,7 @@ ul {
     margin-bottom: -.15em;
 }
 .p {
-    padding: 0 $smallest-font-size;
-    max-width:100vh;
-    margin: 0 auto;
-    position:relative;
+  margin-bottom: $large-font-size;  
 }
 .pp {
     padding: 0 1em;
@@ -178,7 +174,8 @@ ul {
      padding: $smallest-font-size;
 }
 .p1 {
-    padding-bottom: 2em;
+  padding: $one-minus-smallest-font-size 0 $one-plus-one-minus-smallest-font-size $one-minus-smallest-font-size;
+  @include media('portrait') { .p1 { padding: $one-minus-smallest-font-size 0 $one-plus-one-minus-smallest-font-size $one-minus-smallest-font-size; } }
 }
 .padding-right {
     padding-right: $smallest-font-size;
@@ -236,9 +233,16 @@ ul {
 /**
  * Images
  */
-.div {
-    width: 100%;
+.div96 {
     height: 0;
+    position: relative;
+    float: left;
+    margin: 1vw;
+    width: 96%;
+}
+.div {
+    height: 0;
+    width: 100%;
     position: relative;
     float: left;
 }
@@ -341,19 +345,16 @@ ul li:hover > ul {
 /**
  * Media
  */
-@import 'media';
 
 .pvh {
-  padding-top: 25vh;
-  @include media('portrait') {padding-top: 25vw;}
+  padding-top: 33.3333vw;
+  @include media('portrait') {padding-top: 50vw;}
 }
 .pvb {
   padding-bottom: 25vh;
   @include media('portrait') {padding-bottom: 25vw;}
 }
 .vw {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 100vh;
 }
 
@@ -430,20 +431,43 @@ ul li:hover > ul {
   @include media('>=200px', 'retina4x') {background-image: url('../4/grid.jpg');}
   @include media('>=400px', 'retina4x') {background-image: url('../grid.jpg');}
 }
-{% for article in site.posts %}
-.a{{ article.permalink }} {
-  background-size: 100%;
-  background-image: url('../1/{{ article.permalink }}.jpg');
-  @include media('>=200px') {background-image: url('../2/{{ article.permalink }}.jpg');}
-  @include media('>=400px') {background-image: url('../3/{{ article.permalink }}.jpg');}
-  @include media('>=800px') {background-image: url('../4/{{ article.permalink }}.jpg');}
-  @include media('>=1600px') {background-image: url('../{{ article.permalink }}.jpg');}
-  @include media('>=200px', 'retina2x') {background-image: url('../3/{{ article.permalink }}.jpg');}
-  @include media('>=400px', 'retina2x') {background-image: url('../4/{{ article.permalink }}.jpg');}
-  @include media('>=800px', 'retina2x') {background-image: url('../{{ article.permalink }}.jpg');}
-  @include media('>=200px', 'retina4x') {background-image: url('../{{ article.permalink }}.jpg');}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include media('portrait') { grid-template-columns: 1fr; grid-auto-rows: minmax(100vw, auto) auto; }
+  grid-auto-rows: minmax(33.3333vw, auto);
 }
-{% endfor %}
+.gridtag {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include media('portrait') { grid-template-columns: 1fr; grid-auto-rows: minmax(50vw, auto) auto; }
+  grid-auto-rows: minmax(16.6667vw, auto);
+}
+.rd {
+  grid-column: 2 / 4;
+  @include media('portrait') { grid-column:1; grid-row: 2; }
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+}
+.li {
+  grid-column: 1;
+  @include media('portrait') { grid-column:1 / 3; }
+}
+.ri {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column-reverse;
+  @include media('portrait') { grid-column:1 / 3; flex-direction: column; }
+}
+.mi {
+  grid-column: 1 / 3;
+  @include media('portrait') { grid-row: 2; }
+}
+
 {% for article in site.posts %}
 .shop{{ article.permalink }}{
   background-size: 100%;
@@ -460,27 +484,6 @@ ul li:hover > ul {
   @include media('>=800px', 'retina4x') {background-image: url('../{{ article.permalink }}.jpg');}
 }
 {% endfor %}
-
-.bg{
-  background-size: 11.11%;
-  background-image: url('../1/grid.jpg');
-  @include media('>=1800px') {background-image: url('../2/grid.jpg');}
-  @include media('>=3600px') {background-image: url('../3/grid.jpg');}
-  @include media('>=7200px') {background-image: url('../4/grid.jpg');}
-  @include media('>=14400px') {background-image: url('../grid.jpg');}
-  @include media('>=900px', 'retina2x') {background-image: url('../2/grid.jpg');}
-  @include media('>=1800px', 'retina2x') {background-image: url('../3/grid.jpg');}
-  @include media('>=3600px', 'retina2x') {background-image: url('../4/grid.jpg');}
-  @include media('>=7200px', 'retina2x') {background-image: url('../grid.jpg');}
-  @include media('>=675px', 'retina3x') {background-image: url('../2/grid.jpg');}
-  @include media('>=1350px', 'retina3x') {background-image: url('../3/grid.jpg');}
-  @include media('>=2700px', 'retina3x') {background-image: url('../4/grid.jpg');}
-  @include media('>=5400px', 'retina3x') {background-image: url('../grid.jpg');}
-  @include media('>=450px', 'retina4x') {background-image: url('../2/grid.jpg');}
-  @include media('>=900px', 'retina4x') {background-image: url('../3/grid.jpg');}
-  @include media('>=1800px', 'retina4x') {background-image: url('../4/grid.jpg');}
-  @include media('>=3600px', 'retina4x') {background-image: url('../grid.jpg');}
-}
 
 @media only screen and (min-width:334px) {
   .show2 { display: none; }
