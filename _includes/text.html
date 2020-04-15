@@ -1,25 +1,5 @@
-{% if page.layout == 'tag' or page.layout == 'all' %}
-
-<div class='w1'>
-    <div class='p p05'>
-        <div class='x3'>
-            <a href='../../' class='a2'>blaise<span class='hide'>larmee</span></a> / <a href='../' class='a2'>{{ page.collection }}</a> / {{ page.url | split:'/' | last }}
-        </div>
-    </div>
-</div>
-{% elsif page.layout == 'dir' %}
-<div class='w1'>
-    <div class='p p05'>
-        <div class='x3'>
-            <a href='../' class='a2'>blaise<span class='hide'>larmee</span></a> / {{ page.url | replace:'/','' | replace: 'index.html','' }}
-        </div>
-    </div>
-</div>
-{% endif %}
-
 <div class='grid1'>
-  <div class='rd'>
-    <nav class='noselect p1 {% if page.layout == 'tag' or page.layout == 'all' or page.layout == 'dir' or page.url == '/' %}m2{% else %}{% endif %} simpleCart_shelfItem' >
+    <nav class='nav noselect p1 {% if page.layout == 'tag' or page.layout == 'all' or page.layout == 'dir' or page.url == '/' %}m2{% else %}{% endif %} simpleCart_shelfItem' >
         <ul>
             {% if page.url == '/' %}
             <li><a href='mailto:blaiselarmee@gmail.com'>Contact</a>
@@ -131,5 +111,4 @@
         </ul>
     </nav>
     {% include text2.html %}
-  </div>
 </div>

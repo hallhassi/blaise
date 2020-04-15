@@ -28,14 +28,18 @@ body {
   color: $black;
 }
 
+p {
+    margin: 1em;
+}
+
 article {
    float: left;
    width: 33.3333%;
    @include media('portrait') {width: 100%;}
 }
 
-p {
-    margin: 1em;
+p > .gridtag {
+    margin: $smallestest-font-size;
 }
 
 a {
@@ -151,34 +155,43 @@ ul {
 /**
  * Margins
  */
+.n0 {
+ grid-column: 1 /4;
+}
+.n0 p {
+  margin: $one-minus-smallest-font-size;
+}
+.n1 {
+ grid-column: 2 / 4;
+ grid-row: 2 / 4;
+}
 .m1 > div {
-    margin-bottom: $base-font-size;
+  margin-bottom: $base-font-size;
 }
 .m1:last-child > div {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .m2 {
-    margin-top: $base-font-size;
+  margin-top: $base-font-size;
 }
 .m3 {
-    margin-bottom: -.15em;
+  margin-bottom: -.15em;
 }
 .p {
-  margin-bottom: $large-font-size;  
+  margin-bottom: $smallest-font-size;
 }
 .pp {
-    padding: 0 1em;
-    position:relative;
+  padding: 0 1em;
+  position:relative;
 }
 .p05 {
-     padding: $smallest-font-size;
+   padding: $smallest-font-size;
 }
 .p1 {
-  padding: $one-minus-smallest-font-size 0 $one-plus-one-minus-smallest-font-size $one-minus-smallest-font-size;
-  @include media('portrait') { .p1 { padding: $one-minus-smallest-font-size 0 $one-plus-one-minus-smallest-font-size $one-minus-smallest-font-size; } }
+  padding: 0 0 0 $one-minus-smallest-font-size;
 }
 .padding-right {
-    padding-right: $smallest-font-size;
+  padding-right: $smallest-font-size;
 }
 .left {
     float: left;
@@ -436,7 +449,7 @@ ul li:hover > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   @include media('portrait') { grid-template-columns: 1fr; grid-auto-rows: minmax(100vw, auto) auto; }
-  grid-auto-rows: minmax(33.3333vw, auto);
+  grid-auto-rows: minmax(11.1111vw, auto);
 }
 .gridtag {
   display: grid;
@@ -444,9 +457,17 @@ ul li:hover > ul {
   @include media('portrait') { grid-template-columns: 1fr; grid-auto-rows: minmax(50vw, auto) auto; }
   grid-auto-rows: minmax(16.6667vw, auto);
 }
+.sc {
+}
+.nav {
+  grid-column: 2;
+  grid-row: 1;
+  align-items: baseline;
+  align-self: end;
+}
 .rd {
   grid-column: 2 / 4;
-  @include media('portrait') { grid-column:1; grid-row: 2; }
+  @include media('portrait') { grid-column:1; grid-row: 3; }
 }
 .grid2 {
   display: grid;
