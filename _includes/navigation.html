@@ -1,3 +1,44 @@
+.x {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: 1;
+}
+.x1 {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1;
+}
+.x2 {
+    stroke:$black;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap:'round';
+    stroke-linejoin:'round';
+}
+.x3 {
+    width: 66%;
+}
+.x4 {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.x5 {
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
 {% if page.previous.url or page.next.url %}
 <script>
 document.addEventListener("keyup",function(e){

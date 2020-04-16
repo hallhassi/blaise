@@ -1,6 +1,21 @@
 {% unless page.bio %}
-<article class='noselect vw' id='top'>
+<article class='noselect vw' id='top' style='max-width: 100vh'>
     <div class='cover a{{page.permalink}}'>
     </div>
 </article>
 {% endunless %}
+
+.cover {
+    background-size: contain;
+    padding-bottom: 100%;
+}
+.cover:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}

@@ -37,6 +37,7 @@
     @media (min-width: 400px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 400px) and (min-resolution: 192dpi), (min-width: 400px) and (min-resolution: 2dppx) { .bg { background-image: url("../../4/grid.jpg"); } }
     @media (min-width: 800px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 800px) and (min-resolution: 192dpi), (min-width: 800px) and (min-resolution: 2dppx) { .bg { background-image: url("../../grid.jpg"); } }
     @media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 4), (min-width: 200px) and (min-resolution: 384dpi), (min-width: 200px) and (min-resolution: 4dppx) { .bg { background-image: url("../../grid.jpg"); } }
+    {% if page.layout == 'default' %}
     .bg1 {
       background-image: url('../1/{{ page.permalink }}.jpg'), url('../1/grid.jpg');
       background-position: left top;
@@ -52,5 +53,6 @@
     @media (min-width: 400px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 400px) and (min-resolution: 192dpi), (min-width: 400px) and (min-resolution: 2dppx) { .bg1 { background-image: url("../4/{{ page.permalink }}.jpg"), url("../4/grid.jpg"); } }
     @media (min-width: 800px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 800px) and (min-resolution: 192dpi), (min-width: 800px) and (min-resolution: 2dppx) { .bg1 { background-image: url("../{{ page.permalink }}.jpg"), url("../grid.jpg"); } }
     @media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 4), (min-width: 200px) and (min-resolution: 384dpi), (min-width: 200px) and (min-resolution: 4dppx) { .bg1 { background-image: url("../{{ page.permalink }}.jpg"), url("../grid.jpg"); } }
+    {% endif %}
   </style>
 </head>

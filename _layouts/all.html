@@ -5,14 +5,13 @@
 
 <body class='bg'>
 
-{% include navigation.html %}
 {% include text-tag.html %}
 {% if page.url == '/all/products/' %}
-<div class='clearfix'>
-</div>
 {% for article in site.posts %}
 {% if article.buy %}
-    {% include shop-feed.html %}
+<div class='grid1' style='grid-column: 1 /4;'>
+  {% include feed1.html %}
+</div>
 {% endif %}
 {% endfor %}
 {% elsif page.url == '/all/images/' %}
@@ -30,78 +29,85 @@
 {% endfor %}
 {% elsif page.url == '/all/words/' %}
 {% for article in site.posts %}
-<div class='p'>
+<div>
 {% include text-tag2.html %}
 </div>
 {% endfor %}
 {% elsif page.url == '/all/links/' %}
-<div class='p'>
-<p>
-  Social media:
-</p>
-<p>
-  <a class='a2' href='https://www.instagram.com/hitosteyerl/'>Instagram</a>
-</p>
-<p>
-  <a class='a2' href='http://davidhockney.tumblr.com/'>tumblr</a>
-</p>
-<p>
-  <a class='a2' href='https://www.facebook.com/3books/'>Facebook</a>
-</p>
-<p>
-  Interviews:
-</p>
-<p>
-  <a class='a2' href='http://www.tcj.com/blaise-larmee/'>TCJ</a>
-</p>
-<p>
-  <a class='a2' href='https://thoughtcatalog.com/stephen-tully-dierks/2013/05/tweens-exist-in-this-uncanny-valley-an-interview-with-blaise-larmee/'>thoughtcatalog</a>
-</p>
-<p>
-  Reviews:
-</p>
-{% for article in site.posts %}
-{% if article.link1 %}
-<p>
-  <a class='a2' href='{{article.link1}}'>{{article.author1}}</a>
-</p>
-{% endif %}
-{% if article.link2 %}
-<p>
-  <a class='a2' href='{{article.link2}}'>{{article.author2}}</a>
-</p>
-{% endif %}
-{% if article.link3 %}
-<p>
-  <a class='a2' href='{{article.link3}}'>{{article.author3}}</a>
-</p>
-{% endif %}
-{% if article.link4 %}
-<p>
-  <a class='a2' href='{{article.link4}}'>{{article.author4}}</a>
-</p>
-{% endif %}
-{% if article.link5 %}
-<p>
-  <a class='a2' href='{{article.link5}}'>{{article.author5}}</a>
-</p>
-{% endif %}
-{% if article.link6 %}
-<p>
-  <a class='a2' href='{{article.link6}}'>{{article.author6}}</a>
-</p>
-{% endif %}
-{% if article.link7 %}
-<p>
-  <a class='a2' href='{{article.link7}}'>{{article.author7}}</a>
-</p>
-{% endif %}
-{% if article.link8 %}
-<p>
-  <a class='a2' href='{{article.link8}}'>{{article.author8}}</a>
-</p>
-{% endif %}
-{% endfor %}
+<div class='z0'>
+  <ul>
+    <li>
+      Social media
+    </li>
+    <li>
+      <a class='a2' href='https://www.instagram.com/hitosteyerl/'>Instagram</a>
+    </li>
+    <li>
+      <a class='a2' href='http://davidhockney.tumblr.com/'>tumblr</a>
+    </li>
+    <li>
+      <a class='a2' href='https://www.facebook.com/3books/'>Facebook</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      Interviews
+    </li>
+    <li>
+      <a class='a2' href='http://www.tcj.com/blaise-larmee/'>TCJ</a>
+    </li>
+    <li>
+      <a class='a2' href='https://thoughtcatalog.com/stephen-tully-dierks/2013/05/tweens-exist-in-this-uncanny-valley-an-interview-with-blaise-larmee/'>thoughtcatalog</a>
+    </li>
+    <li>
+  </ul>
+  <ul>
+    <li>
+      Reviews
+    </li>
+    {% for article in site.posts %}
+    {% if article.link1 %}
+    <li>
+      <a class='a2' href='{{article.link1}}'>{{article.author1}}</a>
+    </li>
+    {% endif %}
+    {% if article.link2 %}
+    <li>
+      <a class='a2' href='{{article.link2}}'>{{article.author2}}</a>
+    </li>
+    {% endif %}
+    {% if article.link3 %}
+    <li>
+      <a class='a2' href='{{article.link3}}'>{{article.author3}}</a>
+    </li>
+    {% endif %}
+    {% if article.link4 %}
+    <li>
+      <a class='a2' href='{{article.link4}}'>{{article.author4}}</a>
+    </li>
+    {% endif %}
+    {% if article.link5 %}
+    <li>
+      <a class='a2' href='{{article.link5}}'>{{article.author5}}</a>
+    </li>
+    {% endif %}
+    {% if article.link6 %}
+    <li>
+      <a class='a2' href='{{article.link6}}'>{{article.author6}}</a>
+    </li>
+    {% endif %}
+    {% if article.link7 %}
+    <li>
+      <a class='a2' href='{{article.link7}}'>{{article.author7}}</a>
+    </li>
+    {% endif %}
+    {% if article.link8 %}
+    <li>
+      <a class='a2' href='{{article.link8}}'>{{article.author8}}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
 </div>
 {% endif %}
 {% include clipboard.html %}
