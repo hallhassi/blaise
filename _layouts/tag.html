@@ -30,7 +30,7 @@
     {% assign p4 = article.printer | join: " " | slugify %}
     {% assign c1 = article.cover | join: " " %}
     {% assign p5 = article.poster | join: " " %}
-    {% assign p6 = article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' %}
+    {% assign p6 = article.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' | replace:'2019','mmxix' | replace:'2020','mmxx' %}
     {% assign p7 = article.place | join: " " | replace:'ü','u' | replace:'Ó','O' | replace:'ø','o' | replace:'ö','o' | replace:'ñ','n' | replace:'é','e' | slugify %}
 
     {% if article.width == 8.3 and article.height == 11.7 %}
@@ -61,6 +61,12 @@
     {% assign p8 = 'kljasdfoiwjeflasdkjf' %}
     {% endif %}
 
+    {% if article.format == 'sketchbook' or article.format == 'event' or article.format == 'exhibition' or article.format == 'drawings' %}
+    {% assign z2 = 'artist' %}
+    {% else %}
+    {% assign z2 = 'kljasdfoiwjeflasdkjf' %}
+    {% endif %}
+
     {% assign authorCount = article.author | size %}
     {% if authorCount == 0 and article.format and article.format != 'drawings' and article.format != 'exhibition' and article.format != 'sketchbook' %}
     {% assign a1 = 'author' %}
@@ -68,7 +74,7 @@
     {% assign a1 = 'kljasdfoiwjeflasdkjf' %}
     {% endif %}
 
-    {% if p8 == p1 or p7 contains p1 or p6 == p1 or s1 == p1 or a1 == p1 or e1 == p1 or t1 contains p1 or z1 contains p1 or d1 contains p1 or p2 contains p1 or b1 contains p1 or p3 contains p1 or i1 contains p1 or p4 contains p1 or c1 contains p1 or p5 contains p1 %}
+    {% if z2 == p1 or p8 == p1 or p7 contains p1 or p6 == p1 or s1 == p1 or a1 == p1 or e1 == p1 or t1 contains p1 or z1 contains p1 or d1 contains p1 or p2 contains p1 or b1 contains p1 or p3 contains p1 or i1 contains p1 or p4 contains p1 or c1 contains p1 or p5 contains p1 %}
     {% include feed1.html %}
     {% endif %}
 

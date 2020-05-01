@@ -1,3 +1,26 @@
+@media (min-width: 200px) { .bg { background-image: url("../../2/grid.jpg"); } }
+@media (min-width: 400px) { .bg { background-image: url("../../3/grid.jpg"); } }
+@media (min-width: 800px) { .bg { background-image: url("../../4/grid.jpg"); } }
+@media (min-width: 1600px) { .bg { background-image: url("../../grid.jpg"); } }
+@media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 200px) and (min-resolution: 192dpi), (min-width: 200px) and (min-resolution: 2dppx) { .bg { background-image: url("../../3/grid.jpg"); } }
+@media (min-width: 400px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 400px) and (min-resolution: 192dpi), (min-width: 400px) and (min-resolution: 2dppx) { .bg { background-image: url("../../4/grid.jpg"); } }
+@media (min-width: 800px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 800px) and (min-resolution: 192dpi), (min-width: 800px) and (min-resolution: 2dppx) { .bg { background-image: url("../../grid.jpg"); } }
+@media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 4), (min-width: 200px) and (min-resolution: 384dpi), (min-width: 200px) and (min-resolution: 4dppx) { .bg { background-image: url("../../grid.jpg"); } }
+
+@media (min-width: 200px) { .bg1 { background-image: url("../2/{{ page.permalink }}.jpg"), url("../2/grid.jpg"); } }
+@media (min-width: 400px) { .bg1 { background-image: url("../3/{{ page.permalink }}.jpg"), url("../3/grid.jpg"); } }
+@media (min-width: 800px) { .bg1 { background-image: url("../4/{{ page.permalink }}.jpg"), url("../4/grid.jpg"); } }
+@media (min-width: 1600px) { .bg1 { background-image: url("../{{ page.permalink }}.jpg"), url("../grid.jpg"); } }
+@media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 200px) and (min-resolution: 192dpi), (min-width: 200px) and (min-resolution: 2dppx) { .bg1 { background-image: url("../3/{{ page.permalink }}.jpg"), url("../3/grid.jpg"); } }
+@media (min-width: 400px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 400px) and (min-resolution: 192dpi), (min-width: 400px) and (min-resolution: 2dppx) { .bg1 { background-image: url("../4/{{ page.permalink }}.jpg"), url("../4/grid.jpg"); } }
+@media (min-width: 800px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 800px) and (min-resolution: 192dpi), (min-width: 800px) and (min-resolution: 2dppx) { .bg1 { background-image: url("../{{ page.permalink }}.jpg"), url("../grid.jpg"); } }
+@media (min-width: 200px) and (-webkit-min-device-pixel-ratio: 4), (min-width: 200px) and (min-resolution: 384dpi), (min-width: 200px) and (min-resolution: 4dppx) { .bg1 { background-image: url("../{{ page.permalink }}.jpg"), url("../grid.jpg"); } }
+
+<source media='(min-width: 800px)' srcset='{{ site.url }}/{{article.permalink}}.jpg'>
+<source media='(min-width: 400px)' srcset='{{ site.url }}/4/{{article.permalink}}.jpg'>
+<source media='(min-width: 200px)' srcset='{{ site.url }}/3/{{article.permalink}}.jpg'>
+<source media='(min-width: 100px)' srcset='{{ site.url }}/2/{{article.permalink}}.jpg'>
+
 {% unless page.bio %}
 <article class='noselect vw' id='top' style='max-width: 100vh'>
     <div class='cover a{{page.permalink}}'>
