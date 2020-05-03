@@ -55,7 +55,7 @@
     {% assign e1 = 'kljasdfoiwjeflasdkjf' %}
     {% endif %}
 
-    {% if article.pub == 'Gaze Books' %}
+    {% if article.pub == 'Gaze Books' or article.pub == 'self-published' %}
     {% assign p8 = 'publisher' %}
     {% else %}
     {% assign p8 = 'kljasdfoiwjeflasdkjf' %}
@@ -69,6 +69,8 @@
 
     {% assign authorCount = article.author | size %}
     {% if authorCount == 0 and article.format and article.format != 'drawings' and article.format != 'exhibition' and article.format != 'sketchbook' %}
+    {% assign a1 = 'author' %}
+    {% elsif authorCount != 0 and article.pub != 'Gaze Books' and article.editor != 'Blaise Larmee' and article.format != 'drawings' and article.format != 'exhibition' %}
     {% assign a1 = 'author' %}
     {% else %}
     {% assign a1 = 'kljasdfoiwjeflasdkjf' %}
