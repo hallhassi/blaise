@@ -6,15 +6,9 @@
 <body class='bg1'>
 
 {% include text.html %}
-{% if page.images2 %}
 <div class='grid2'>
-  {% include images2.html %}
-</div>
-{% elsif page.images %}
-<div class='li' {% if page.permalink == 'sketchbook-1' %}style='background-color: #b2b2b2;'{% endif %}>
   {% include images.html %}
 </div>
-{% endif %}
 {% if page.youtube %}
 {% include youtube.html %}
 {% endif %}

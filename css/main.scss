@@ -74,7 +74,8 @@ p {
 .grid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100vw;
+  width: 98vw;
+  margin: 0 1vw;
 }
 .li {
   grid-column: 1;
@@ -86,9 +87,16 @@ p {
   flex-direction: column-reverse;
   @include media('portrait') { grid-column:1 / 3; flex-direction: column; }
 }
+.li div, .ri div {
+  @include media('portrait') { margin: 1vw 2vw; }
+}
 .mi {
   grid-column: 1 / 3;
   @include media('portrait') { grid-row: 2; }
+}
+.mi div {
+  width: 96vw;
+  @include media('portrait') { width: 96%; margin: 1vw 2vw; }
 }
 .n1 {
  grid-column: 2 / 4;
