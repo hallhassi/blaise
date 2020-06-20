@@ -4,36 +4,50 @@
 {% include head.html %}
 
 <body class='bg'>
-
 {% include text-tag.html %}
-{% if page.url == '/all/products/' %}
+{% if page.url == '/products/' %}
+<div class='grid1' style='grid-column: 1 /4;'>
 {% for article in site.posts %}
 {% if article.buy %}
-<div class='grid1' style='grid-column: 1 /4;'>
   {% include feed1.html %}
-</div>
 {% endif %}
 {% endfor %}
-{% elsif page.url == '/all/images/' %}
+</div>
+{% elsif page.url == '/words/' %}
+<div class='gridvid'>
+  {% include web.html %}
+</div>
+{% elsif page.url == '/images/' %}
 {% for page in site.posts %}
-<div class='m1'>
+{% if page.images %}
+{% if page.archive %}
+{% else %}
+<div class='grid2'>
+  <div style='margin-top: 2.1875em;'>
+    <p class="m1">
+      <a class="a2" href="{{page.url}}">{{page.title}}</a>
+    </p>
+  </div>
 {% include images.html %}
 </div>
-{% endfor %}
-{% include lazy.html %}
-{% elsif page.url == '/all/videos/' %}
-{% for page in site.posts %}
-{% if page.youtube %}
-{% include youtube.html %}
+{% endif %}
 {% endif %}
 {% endfor %}
-{% elsif page.url == '/all/words/' %}
-{% for article in site.posts %}
-<div>
-{% include text-tag2.html %}
+{% include lazy.html %}
+{% elsif page.url == '/videos/' %}
+{% for page in site.posts %}
+{% if page.youtube %}
+<div class='gridvid'>
+  <div style='margin-top: 2.1875em;'>
+    <p class="m1">
+      <a class="a2" href="{{page.url}}">{{page.title}}</a>
+    </p>
+  </div>
+  {% include youtube.html %}
 </div>
+{% endif %}
 {% endfor %}
-{% elsif page.url == '/all/links/' %}
+{% elsif page.url == '/links/' %}
 <div class='z0'>
   <ul>
     <li>

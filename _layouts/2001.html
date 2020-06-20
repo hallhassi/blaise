@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+<div style='width:100%'>
+  {% assign amount = 10000 %}
+  {% for i in (1..52) %}
+  {% assign amount = amount | plus:1 %}
+  <div style='padding-bottom:100%'>
+    <picture class='noselect'>
+      <source media='(max-width: 1250px)' data-srcset='{{ site.url }}/3/2001-{{ amount }}.png'>
+      <source media='(min-width: 1251px)' data-srcset='{{ site.url }}/4/2001-{{ amount }}.png'>
+      <img data-src='{{ site.url }}/3/2001-{{ amount }}.png' class='img alt' alt='{{page.title}}'>
+    </picture>
+    <noscript>
+      <picture class='noselect'>
+        <source media='(max-width: 1250px)' srcset='{{ site.url }}/3/2001-{{ amount }}.png'>
+        <source media='(min-width: 1251px)' srcset='{{ site.url }}/4/2001-{{ amount }}.png'>
+        <img src='{{ site.url }}/3/2001-{{ amount }}.png' class='img alt' alt='{{page.title}}'>
+      </picture>
+    </noscript>
+  </div>
+  {% endfor %}
+</div>
+
+{% include lazy.html %}
+
+</body>

@@ -77,6 +77,17 @@ p {
   width: 98vw;
   margin: 0 1vw;
 }
+.gridvid div {
+  margin-top: 2.1875em;
+}
+.gridvid {
+  display: grid;
+  width: 98vw;
+  margin: 0 1vw;
+}
+.ui {
+  grid-column:1 / 3;
+}
 .li {
   grid-column: 1;
   @include media('portrait') { grid-column:1 / 3; }
@@ -116,7 +127,8 @@ p {
   margin-bottom: 0;
 }
 .n0 {
-  height: 12.5vw;
+  position: absolute;
+  z-index: 1;
 }.n0 ul {
   display: inline-block;
   vertical-align: top;
@@ -145,7 +157,9 @@ p {
 @media only screen and (min-width: 550px) {
   .hide5 { display: inline; }
 }
-
+.pre {
+  white-space: pre-wrap;
+}
 
 .a {
   color: $blue;

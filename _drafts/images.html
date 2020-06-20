@@ -8,7 +8,7 @@
       {% if page.maxres <= 1280 %}
       <img data-src='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg' class='img alt' alt='{{page.title}}'>
       {% else %}
-      <source data-srcset='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 3x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 4x' media='(max-width: 450px)'>
+      <source data-srcset='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 3x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 4x'>
       <source data-srcset='{{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 1.5x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/{{page.permalink}}-{{ amount }}.jpg 4x'>
       <img data-src='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg' class='img alt' alt='{{page.title}}'>
       {% endif %}
@@ -18,7 +18,7 @@
         {% if page.maxres <= 1280 %}
         <img src='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg' class='img alt' alt='{{page.title}}'>
         {% else %}
-        <source srcset='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 3x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 4x' media='(max-width: 450px)'>
+        <source srcset='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 3x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 4x'>
         <source srcset='{{ site.url }}/2/{{page.permalink}}-{{ amount }}.jpg, {{ site.url }}/3/{{page.permalink}}-{{ amount }}.jpg 1.5x, {{ site.url }}/4/{{page.permalink}}-{{ amount }}.jpg 2x, {{ site.url }}/{{page.permalink}}-{{ amount }}.jpg 4x'>
         <img src='{{ site.url }}/1/{{page.permalink}}-{{ amount }}.jpg' class='img alt' alt='{{page.title}}'>
         {% endif %}

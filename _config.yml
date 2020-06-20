@@ -12,7 +12,7 @@ collections:
     collections_dir: /:name
   all:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:path/
     collections_dir: /:name
   year:
     output: true
