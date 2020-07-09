@@ -4,7 +4,7 @@
 {% include head.html %}
 
 <body class='bg'>
-
+<main>
 {% include text-tag.html %}
 
 <div class='grid1' style='grid-column: 1 /4;'>
@@ -89,7 +89,7 @@
     {% assign w1 = page.url | replace:'/','' | first | split: '' %}
     {% assign alltags = alltags | concat: w1 %}
 {% endfor %}
-
+</main>
 </body>
 
 </html>

@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 {% include head.html %}
-
-<body class='bg1'>
-
-{% include text.html %}
-<div class='grid2'>
+<body class="bg1">
+<main>
+  {% include text.html %}
+  <div class='grid2'>
   {% include images.html %}
-</div>
-{% if page.youtube %}
-{% include youtube.html %}
-{% endif %}
-
+  </div>
+  {% if page.youtube %}
+  {% include youtube.html %}
+  {% endif %}
+</main>
 {% include lazy.html %}{% include clipboard.html %}
-
 </body>
-
 </html>

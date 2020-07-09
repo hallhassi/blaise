@@ -6,7 +6,7 @@
   {% assign b2 = page.images | divided_by: 2 | floor %}
   {% for ratios in page.ratios limit: b2 %}
   {% assign amount = amount | plus:1 }}{% endcapture %}
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{ratios}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}
@@ -42,7 +42,7 @@
   {% assign amount = 10000 | plus: b3 %}
   {% for ratios in page.ratios offset: b3 %}
   {% assign amount = amount | plus:1 }}{% endcapture %}
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{ratios}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}
@@ -74,7 +74,7 @@
 {% for ratios in page.ratios offset: b2 limit: 1 %}
 
 <div class="mi">
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{ratios}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}
@@ -112,7 +112,7 @@
   {% assign b2 = page.images | divided_by: 2 | floor %}
   {% for i in (1..b2) %}
   {% assign amount = amount | plus:1 }}{% endcapture %}
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{page.ratio}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}
@@ -148,7 +148,7 @@
   {% assign amount = 10000 | plus: b3 %}
   {% for i in (1..page.images) offset: b3 %}
   {% assign amount = amount | plus:1 }}{% endcapture %}
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{page.ratio}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}
@@ -179,7 +179,7 @@
 {% assign amount = 10000 | plus: b3 %}
 
 <div class="mi">
-  <a class='z1' href='{{ site.url }}/{{page.permalink}}-{{ amount }}.jpg'>
+  <a class='z1' href='https://raw.githubusercontent.com/hallhassi/blaise/master/{{page.permalink}}-{{ amount }}.jpg'>
     <div class='div96' style='padding-bottom: {{page.ratio}}%'>
       <picture class='noselect'>
         {% if page.maxres <= 1280 %}

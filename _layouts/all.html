@@ -1,144 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 {% include head.html %}
-
 <body class='bg'>
+<main>
 {% include text-tag.html %}
+
 {% if page.url == '/products/' %}
 <div class='grid1' style='grid-column: 1 /4;'>
-{% for article in site.posts %}
-{% if article.buy %}
-  {% include feed1.html %}
-{% endif %}
-{% endfor %}
+  {% for article in site.posts %}
+    {% if article.buy %}
+    {% include feed1.html %}
+    {% endif %}
+  {% endfor %}
 </div>
-{% elsif page.url == '/words/' %}
-<div class='gridvid'>
-  {% include web.html %}
-</div>
+
 {% elsif page.url == '/images/' %}
 {% for page in site.posts %}
-{% if page.images %}
-{% if page.archive %}
-{% else %}
-<div class='grid2'>
-  <div style='margin-top: 2.1875em;'>
-    <p class="m1">
-      <a class="a2" href="{{page.url}}">{{page.title}}</a>
-    </p>
-  </div>
-{% include images.html %}
-</div>
-{% endif %}
-{% endif %}
+  {% if page.images %}
+    {% if page.archive %}
+    {% else %}
+    <div class='grid2' style='position:relative;'>
+      <div style='position:absolute; top:0; height: 100%;'>
+        <nav class='n0 sticky'><ul><li><a href='../../' class='a2'>blaise<span class='hide5'>larmee</span></a></li><li>/</li><li><a class="a2" href="{{page.url}}">{{page.url | remove:"/"}}</a></li></ul></nav>
+      </div>
+    {% include images.html %}
+    </div>
+    {% endif %}
+  {% endif %}
 {% endfor %}
-{% include lazy.html %}
+
 {% elsif page.url == '/videos/' %}
 {% for page in site.posts %}
-{% if page.youtube %}
-<div class='gridvid'>
-  <div style='margin-top: 2.1875em;'>
-    <p class="m1">
-      <a class="a2" href="{{page.url}}">{{page.title}}</a>
-    </p>
-  </div>
+  {% if page.youtube %}
+  <div class='gridvid' style='position:relative;'>
+    <div style='position:absolute; top:0; height: 100%;'>
+      <nav class='n0 sticky'><ul><li><a href='../../' class='a2'>blaise<span class='hide5'>larmee</span></a></li><li>/</li><li><a class="a2" href="{{page.url}}">{{page.url | remove:"/"}}</a></li></ul></nav>
+    </div>
   {% include youtube.html %}
-</div>
-{% endif %}
+  </div>
+  {% endif %}
 {% endfor %}
-{% elsif page.url == '/links/' %}
-<div class='z0'>
-  <ul>
-    <li>
-      Social media
-    </li>
-    <li>
-      <a class='a2' href='https://www.instagram.com/hitosteyerl/'>Instagram</a>
-    </li>
-    <li>
-      <a class='a2' href='http://davidhockney.tumblr.com/'>tumblr</a>
-    </li>
-    <li>
-      <a class='a2' href='https://www.facebook.com/3books/'>Facebook</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      Interviews
-    </li>
-    <li>
-      <a class='a2' href='http://www.tcj.com/blaise-larmee/'>TCJ</a>
-    </li>
-    <li>
-      <a class='a2' href='https://thoughtcatalog.com/stephen-tully-dierks/2013/05/tweens-exist-in-this-uncanny-valley-an-interview-with-blaise-larmee/'>thoughtcatalog</a>
-    </li>
-    <li>
-  </ul>
-  <ul>
-    <li>
-      Webcomics
-    </li>
-    <li>
-      <a class='a2' href='https://labordaycomic.blogspot.com/'>Labor Day Comic</a>
-    </li>
-    <li>
-      <a class='a2' href='https://parkinglotcomic.blogspot.com/'>Parking Lot Comic</a>
-    </li>
-    <li>
-      <a class='a2' href='https://showercomic.blogspot.com/'>Shower Comic</a>
-    </li>
-  </ul>
-  <ul>
-    <li>
-      Reviews
-    </li>
-    {% for article in site.posts %}
-    {% if article.link1 %}
-    <li>
-      <a class='a2' href='{{article.link1}}'>{{article.author1}}</a>
-    </li>
-    {% endif %}
-    {% if article.link2 %}
-    <li>
-      <a class='a2' href='{{article.link2}}'>{{article.author2}}</a>
-    </li>
-    {% endif %}
-    {% if article.link3 %}
-    <li>
-      <a class='a2' href='{{article.link3}}'>{{article.author3}}</a>
-    </li>
-    {% endif %}
-    {% if article.link4 %}
-    <li>
-      <a class='a2' href='{{article.link4}}'>{{article.author4}}</a>
-    </li>
-    {% endif %}
-    {% if article.link5 %}
-    <li>
-      <a class='a2' href='{{article.link5}}'>{{article.author5}}</a>
-    </li>
-    {% endif %}
-    {% if article.link6 %}
-    <li>
-      <a class='a2' href='{{article.link6}}'>{{article.author6}}</a>
-    </li>
-    {% endif %}
-    {% if article.link7 %}
-    <li>
-      <a class='a2' href='{{article.link7}}'>{{article.author7}}</a>
-    </li>
-    {% endif %}
-    {% if article.link8 %}
-    <li>
-      <a class='a2' href='{{article.link8}}'>{{article.author8}}</a>
-    </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
-{% include clipboard.html %}
-</body>
 
+{% endif %}
+</main>
+{% include lazy.html %}
+{% include ajax.html %}
+</body>
 </html>
