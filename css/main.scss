@@ -37,6 +37,11 @@ body {
   background-size: 33.3333vw;
   @include media('portrait') { background-size: 100vw; }
 }
+.index div:first-of-type { margin-top: 2.1875em; }
+.index p::before { content: ">"; }
+.index p:first-letter { margin-left: -0.41666725em; }
+.index .pre { margin-left: 0; }
+.index p { margin: 0.41666725em }
 p {
   margin: 1em;
 }
