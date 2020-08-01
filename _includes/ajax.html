@@ -8,7 +8,6 @@ $(function() {
 
   init = function() {
     var myLazyLoad = new LazyLoad();
-    $(this).scrollTop(0);
   },
 
   ajaxLoad = function(html) {
@@ -40,6 +39,7 @@ $(function() {
     {
       history.pushState({}, '', href);
       loadPage(href);
+      $(window).scrollTop(0);
       return false;
     }
   });
