@@ -43,5 +43,10 @@ $(function() {
       return false;
     }
   });
+
+  // Store the initial content so we can revisit it later
+  history.replaceState({
+  }, document.title, document.location.href);
+
 });
 </script>
