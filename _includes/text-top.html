@@ -1,0 +1,55 @@
+<a id='copy' type='button' onclick='copy()' class='btn' data-clipboard-demo data-clipboard-action='copy' data-clipboard-text='{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}'>copy link</a>
+
+{% if page.role %}<a class='a2' href='{{ site.url }}/role/{{page.role}}'>{{page.role}}</a> {% endif %}
+{% if page.format %}<a class='a2' href='{{ site.url }}/format/{{page.format}}'>{{page.format}}</a> {% endif %}
+{% if page.place %}<a class='a2' href='{{ site.url }}/place/{{ page.place| slugify }}'>{{ page.place }}</a> {% endif %}
+{% if page.pubdate %}<a class='a2' href='{{ site.url }}/year/{{ page.pubdate | replace:'2008','mmviii' | replace:'2009','mmvix' | replace:'2010','mmx' | replace:'2011','mmxi' | replace:'2012','mmxii' | replace:'2013','mmxiii' | replace:'2014','mmxiv' | replace:'2015','mmxv' | replace:'2016','mmxvi' | replace:'2017','mmxvii' | replace:'2018','mmxviii' }}'>{{ page.pubdate }}</a> {% endif %}
+{% if page.print %}<a class='a2' href='{{ site.url }}/print/{{ page.print| slugify }}'>{{ page.print }}</a> {% endif %}
+{% if page.publisher %}<a class='a2' href='{{ site.url }}/publisher/{{ page.publisher| slugify }}'>{{ page.publisher }}</a> {% endif %}
+{% if page.binding %}<a class='a2' href='{{ site.url }}/binding/{{ page.binding| slugify }}'>{{ page.binding }}</a> {% endif %}
+{% if page.size %}<a class='a2' href='{{ site.url }}/size/{{ page.size| slugify }}'>{{ page.size }}</a> {% endif %}
+{% if page.ink %}<a class='a2' href='{{ site.url }}/ink/{{ page.ink| slugify }}'>{{ page.ink }}</a> {% endif %}
+
+{% if page.buy %}
+<ul>
+  <li><a>buy</a>
+    <ul>
+      {% if page.paypal %}
+      <li>
+          <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id={{ page.paypal }}'>${{ page.price | plus:'10' }}{% if page.permalink == 'aidan-koch-the-whale' %}{% else %} signed{% endif %}</a>
+      </li>
+      {% endif %}
+      {% if page.2dcloud %}
+      <li>
+          <a href='https://shop.2dcloud.com/products/{{ page.2dcloud }}'>${{ page.price }} 2dcloud</a>
+      </li>
+      {% endif %}
+      {% if page.amazon %}
+      <li>
+          <a href='https://www.amazon.com/{{ page.amazon }}'>${{ page.price }} amazon</a>
+      </li>
+      {% endif %}
+      {% if page.storenvy %}
+      <li>
+          <a href='http://sonatina.storenvy.com/products/{{ page.storenvy }}'>${{ page.price }} storenvy</a>
+      </li>
+      {% endif %}
+      {% if page.tictail %}
+      <li>
+          <a href='http://{{ page.tictail }}'>${{ page.price }} tictail</a>
+      </li>
+      {% endif %}
+      {% if page.printedmatter %}
+      <li>
+          <a href='https://www.printedmatter.org/catalog/{{ page.printedmatter }}'>${{ page.price }} Printed Matter</a>
+      </li>
+      {% endif %}
+      {% if page.publicationstudio %}
+      <li>
+          <a href='https://{{ page.publicationstudio }}'>${{ page.price }} Publication Studio</a>
+      </li>
+      {% endif %}
+    </ul>
+  </li>
+</ul>
+{% endif %}

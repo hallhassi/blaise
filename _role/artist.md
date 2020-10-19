@@ -1,3 +1,3 @@
 ---
-bio: Publisher is a role played by Blaise Larmee.
+bio: Artist is a role played by Blaise Larmee.
 ---

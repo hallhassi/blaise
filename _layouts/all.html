@@ -5,23 +5,13 @@
 <main>
 {% include text-tag.html %}
 
-{% if page.url == '/products/' %}
-<div class='grid1' style='grid-column: 1 /4;'>
-  {% for article in site.posts %}
-    {% if article.buy %}
-    {% include feed1.html %}
-    {% endif %}
-  {% endfor %}
-</div>
-
-{% elsif page.url == '/images/' %}
 {% for page in site.posts %}
   {% if page.images %}
     {% if page.archive %}
     {% else %}
     <div class='grid2' style='position:relative;'>
       <div style='position:absolute; top:0; height: 100%;'>
-        <nav class='n0 sticky'><ul><li><a href='../../' class='a2'>blaise<span class='hide5'>larmee</span></a></li><li>/</li><li><a class="a2" href="{{page.url}}">{{page.url | remove:"/"}}</a></li></ul></nav>
+        <nav class='n0 sticky'><ul><li><a class="a2" href="{{page.url}}">{{page.url | remove:"/"}}</a></li></ul></nav>
       </div>
     {% include images.html %}
     </div>
@@ -29,19 +19,6 @@
   {% endif %}
 {% endfor %}
 
-{% elsif page.url == '/videos/' %}
-{% for page in site.posts %}
-  {% if page.youtube %}
-  <div class='gridvid' style='position:relative;'>
-    <div style='position:absolute; top:0; height: 100%;'>
-      <nav class='n0 sticky'><ul><li><a href='../../' class='a2'>blaise<span class='hide5'>larmee</span></a></li><li>/</li><li><a class="a2" href="{{page.url}}">{{page.url | remove:"/"}}</a></li></ul></nav>
-    </div>
-  {% include youtube.html %}
-  </div>
-  {% endif %}
-{% endfor %}
-
-{% endif %}
 </main>
 {% include lazy.html %}
 {% include ajax.html %}
