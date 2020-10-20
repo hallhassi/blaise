@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-<body class="bg1">
+<body>
 <main>
   {% include text.html %}
   <div class='grid2'>
@@ -10,9 +10,9 @@
   {% if page.youtube %}
   {% include youtube.html %}
   {% endif %}
+  {% include lazy.html %}
+  {% include ajax.html %}
+  {% include clipboard.html %}
 </main>
-{% include lazy.html %}
-{% include ajax.html %}
-{% include clipboard.html %}
 </body>
 </html>

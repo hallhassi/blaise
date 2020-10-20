@@ -2,16 +2,16 @@
 ---
 @import 'media';
 @font-face {
-  font-family: 'papa';
-  src: url('{{ site.url }}/fonts/papa.eot'); /* IE9 Compat Modes */
-  src: url('{{ site.url }}/fonts/papa.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('{{ site.url }}/fonts/papa.woff2') format('woff2'), /* Super Modern Browsers */
-       url('{{ site.url }}/fonts/papa.woff') format('woff'), /* Pretty Modern Browsers */
-       url('{{ site.url }}/fonts/papa.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('{{ site.url }}/fonts/papa.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-family: 'mama';
+  src: url('{{ site.url }}/fonts/mama.eot'); /* IE9 Compat Modes */
+  src: url('{{ site.url }}/fonts/mama.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('{{ site.url }}/fonts/mama.woff2') format('woff2'), /* Super Modern Browsers */
+       url('{{ site.url }}/fonts/mama.woff') format('woff'), /* Pretty Modern Browsers */
+       url('{{ site.url }}/fonts/mama.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('{{ site.url }}/fonts/mama.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-$base-font-family: papa;
+$base-font-family: mama;
 $base-font-size: 1.75em;
 $smallest-font-size: $base-font-size * .333333;
 $one-minus-smallest-font-size: 1 - $smallest-font-size;
